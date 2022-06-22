@@ -1,0 +1,61 @@
+.container {
+  display: flex;
+  z-index: 3;
+  height: 100%;
+  width: 100%;
+  position: absolute
+}
+
+.barContainer {
+  flex: 1;
+  align-items: center;
+  transform: translateY(110%);
+  width: 100%;
+  overflow: hidden;
+
+  background-color: white;
+  
+  animation-name: swipeIn;
+  animation-duration: 0.7s;
+  animation-timing-function: ease-out;
+  animation-iteration-count: 1;
+  animation-direction: alternate;
+  animation-fill-mode: forwards;
+}
+
+@keyframes swipeIn {
+  from {transform: translateY(110%);}
+  to {transform: translateY(0px);}
+}
+
+.disappear {
+  transform: translateY(0px);
+
+  animation-name: swipeOut;
+  animation-duration: 0.3s;
+  animation-timing-function: ease-in;
+  animation-iteration-count: 1;
+  animation-direction: alternate;
+  animation-fill-mode: forwards;
+}
+
+@keyframes swipeOut {
+  from {transform: translateY(0px);}
+  to {transform: translateY(-110%);}
+}
+
+.barHeader {
+  color: black;
+  display: block;
+  text-align: center;
+  margin: 10px;
+  font-size: 15px;
+}
+
+.barColor {
+  height: 100%;
+}
+
+.displayNone {
+  display: none;
+}

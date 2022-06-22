@@ -1,0 +1,89 @@
+@import './../../styles/content.scss';
+
+$blurRadius: 15px;
+
+.project {
+  position: relative;
+  transition: transform 1s, opacity 1s;
+  margin: 60px 0;
+  min-height: 0;
+
+  .contentInner {
+    width: 100%;
+    height: 100%;
+    padding: $blurRadius;
+    transform: translate(-$blurRadius, -$blurRadius);
+
+    opacity: 0;
+    border-radius: $blurRadius;
+    position: absolute;
+    z-index: 2;
+    backdrop-filter: blur(10px);
+    transition: opacity 0.3s;
+  }
+  
+  $vPadding: 40px;
+  $hPadding: 55px;
+  .contentInnerInner {
+    height: calc(100% - 2*$vPadding);
+    display: flex;
+    flex-direction: column;
+    padding: $vPadding $hPadding;
+  }
+
+  .description {
+    margin-top: 30px;
+    font-size: 20px;
+    letter-spacing: 0.05em;
+  }
+
+  .contentTitle {
+    font-size: 25px;
+    margin: 0 0;
+    width: 100%;
+  }
+
+  .technologiesAndLinks {
+    margin-top: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1rem;
+  }
+
+  .technologies {
+    word-spacing: 1em;
+    font-family: monospace;
+  }
+
+  .links {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    gap: 20px;
+  }
+
+  &:hover {
+    .contentInner {
+      opacity: 1;
+    }
+
+    .image {
+      filter: brightness(40%);
+    }
+  }
+}
+
+.image {
+  flex-shrink: 0;
+  position: relative;
+  width: 100%;
+  border-radius: 10px;
+
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: center;
+
+  transition: filter 0.5s;
+}

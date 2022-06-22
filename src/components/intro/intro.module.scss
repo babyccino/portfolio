@@ -1,0 +1,113 @@
+@import url('https://fonts.googleapis.com/css2?family=Heebo:wght@700&family=Roboto+Condensed:wght@700&display=swap');
+
+$background: rgb(45, 45, 45);
+
+.container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  position: fixed;
+  top: 0;
+  z-index: 2;
+  
+  background-color: white;
+
+  animation: fadeIn 0.7s ease-out 0s 1 normal forwards;
+}
+
+@keyframes fadeIn {
+  to {background-color: $background;}
+}
+
+.welcomeContainer {
+  height: 100%;
+  flex-grow: 1;
+  line-height: 2;
+  
+  * {
+    text-align: center;
+  }
+}
+
+.title {
+  display: block;
+  margin-top: 25%;
+  font-size: 3em;
+  font-family: 'Heebo';
+  font-weight: 700;
+  transition: 0.7s ease;
+}
+
+.instructions  {
+  font-weight: 400;
+  color: rgb(216, 216, 216);
+}
+
+.spacebar {
+  display: inline-block;
+
+  animation: press 7s linear 5s infinite;
+}
+
+@keyframes press {
+  0% {transform: translateY(0px);}
+  2% {transform: translateY(3px);}
+  5% {transform: translateY(3px);}
+  7% {transform: translateY(0px);}
+}
+
+$upAnimationDuration: 12s;
+$upAnimationInitialDelay: 7s;
+.upContainer {
+  display: inline-block;
+  position: relative;
+
+  .upTransparent {
+    position: relative;
+    color: transparent;
+  }
+
+  .upAnimated1, .upAnimated2 {
+    display: inline-block;
+    position: absolute;
+    color: rgb(216, 216, 216);
+  
+    animation: swipe $upAnimationDuration ease-in $upAnimationInitialDelay infinite normal forwards;
+  }
+  
+  .upAnimated2 {
+    animation-delay: $upAnimationInitialDelay + $upAnimationDuration / 2;
+  }
+}
+
+@keyframes swipe {
+  0% {transform: translateY(0px); color: rgb(216, 216, 216);}
+  5% {transform: translateY(-20px); color: transparent};
+  53% {transform: translateY(0px); color: transparent};
+  59% {transform: translateY(0px); color: rgb(216, 216, 216);}
+}
+
+.barsContainer {
+  flex-grow: 3;
+  height: 100%;
+  position: relative;
+}
+
+.willDisappear {
+  background-color: $background;
+
+  animation: fadeOut 0.7s ease-in 0.3s 1 normal forwards;
+
+  .welcomeContainer {
+    animation: swipeLeft 0.7s ease-in 0s 1 normal forwards;
+  }
+}
+
+@keyframes fadeOut {
+  from {opacity: 1;}
+  to {opacity: 0;}
+}
+
+@keyframes swipeLeft {
+  to {transform: translateX(-105%);}
+}
