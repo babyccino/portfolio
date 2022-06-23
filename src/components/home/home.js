@@ -52,7 +52,6 @@ const Home = () => {
         <Intro /> :
         <>
           <Header color1={colorPalette[0]} color2={colorPalette[1]} />
-          <Icons color={colorPalette[0]} />
           <Content />
         </>
       }

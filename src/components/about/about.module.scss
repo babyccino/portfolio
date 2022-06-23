@@ -9,6 +9,16 @@
   max-width: 900px;
 }
 
+@media only screen and (max-width: 768px) {
+  .about {
+    flex-direction: column;
+  }
+
+  .image {
+    width: 100%;
+  }
+}
+
 .image {
   flex-shrink: 0;
   position: relative;
@@ -33,3 +43,4 @@
   font-family: monospace;
   word-spacing: 1em;
 }
+

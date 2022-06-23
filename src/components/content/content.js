@@ -5,6 +5,7 @@ import styles from './content.module.scss';
 
 import About from '../about/about';
 import Projects from '../projects/projects';
+import Icons from '../icons';
 
 import { linearGradient } from '../util';
 import Contact from '../contact/contact';
@@ -26,6 +27,10 @@ const Content = () => {
       <Projects />
 
       <Contact />
+      <div className={styles.footer}>
+        <Icons color={colorPalette[0]} />
+        Designed by Gus Ryan, thanks for checking it out!
+      </div>
       
     </main>
   );

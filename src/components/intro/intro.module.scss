@@ -15,6 +15,12 @@ $background: rgb(45, 45, 45);
   animation: fadeIn 0.7s ease-out 0s 1 normal forwards;
 }
 
+@media only screen and (max-width: 768px) {
+  .container {
+    flex-direction: column;
+  }  
+}
+
 @keyframes fadeIn {
   to {background-color: $background;}
 }
@@ -23,6 +29,9 @@ $background: rgb(45, 45, 45);
   height: 100%;
   flex-grow: 1;
   line-height: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   
   * {
     text-align: center;
@@ -31,11 +40,11 @@ $background: rgb(45, 45, 45);
 
 .title {
   display: block;
-  margin-top: 25%;
   font-size: 3em;
   font-family: 'Heebo';
   font-weight: 700;
   transition: 0.7s ease;
+  margin: 0;
 }
 
 .instructions  {

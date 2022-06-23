@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { Link, animateScroll as scroll } from "react-scroll";
+import React, {  } from 'react';
+import { Link } from "react-scroll";
 
 import useIsScrollingUp from '../../hooks/scrollUp';
 import useIsTopOfPage from '../../hooks/topOfPage';
@@ -30,9 +30,9 @@ const Header = ({ color1, color2 }) => {
       <div className={styles.contentContainer}>
         <div className={styles.logo}><Logo color1={color1} color2={color2} /></div>
         <nav className={styles.sections}>
-          <Link to="about" smooth style={{borderColor: color1}}>About</Link>
-          <Link to="projects" smooth style={{borderColor: color1}}>Projects</Link>
-          <Link to="contact" smooth style={{borderColor: color1}}>Contact</Link>
+          <Link to="about" smooth offset={-56} style={{borderColor: color1}}>About</Link>
+          <Link to="projects" smooth offset={-56} style={{borderColor: color1}}>Projects</Link>
+          <Link to="contact" smooth offset={-56} style={{borderColor: color1}}>Contact</Link>
         </nav>
       </div>
     </div>

@@ -4,7 +4,7 @@ $grey: rgb(224, 224, 224);
   z-index: 5;
   position: fixed;
   top: 0;
-  width: 100%;
+  width: 100vw;
   display: flex;
   justify-content: center;
 
@@ -34,7 +34,7 @@ $grey: rgb(224, 224, 224);
 
   padding: 12px 30px 14px 30px;
   transform: translateY(-100%);
-  animation: entry 1s ease-out 3s 1 normal both;
+  animation: entry 1s ease-out 1.2s 1 normal both;
 }
 
 @keyframes entry {

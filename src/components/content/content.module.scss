@@ -1,7 +1,14 @@
 .main {
+  position: relative;
   min-height: 100vh;
-  max-width: 1000px;
+  max-width: clamp(0px, 80vw, 1000px);
   margin: auto;
+}
+
+@media only screen and (max-width: 768px) {
+  .main {
+    max-width: 85vw;
+  }
 }
 
 .introduction {
@@ -22,12 +29,14 @@
 
   opacity: 0;
   animation: fadeIn 0.5s ease-in-out 0s 1 normal forwards;
+
+  font-size: clamp(15px, 2vmax, 30px);
 }
 
 .name {
   font-family: 'Heebo';
   font-weight: 700;
-  font-size: clamp(50px, 8vw, 100px);
+  font-size: clamp(60px, 8vmax, 120px);
   margin: 0;
 
   background-color: red;
@@ -56,6 +65,7 @@
 .tagline {
   margin: 0;
   opacity: 0;
+  font-size: clamp(15px, 2vmax, 30px);
   animation: fadeIn 0.5s ease-in-out 0.4s 1 normal forwards;
 }
 
@@ -70,3 +80,12 @@
   }
 }
 
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+  font-size: clamp(12px, 1.4vmax, 16px);
+  color: rgb(136, 136, 136);
+  padding-bottom: 2em;
+}

@@ -1,25 +1,33 @@
 @import './../../styles/content.scss';
 
 .contact {
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
   margin: 0 auto;
+  min-height: 100vh;
 
   .contentInner {
     text-align: center;
   }
 
   .contentTitle {
+    font-size: clamp(26px, 5vw, 45px);
     width: 100%;
     text-align: center;
+    margin: 0.5em 0;
+  }
+
+  p {
+    font-size: clamp(16px, 1.8vw, 20px);
+    margin: 0;
   }
 }
 
 .buttonContainer {
   text-align: center;
-  margin: 50px 0;
+  margin: 2em 0;
 }
 
 .emailButton {

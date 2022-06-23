@@ -1,10 +1,10 @@
 .content {
   max-width: 800px;
-  min-height: 80vh;
-  margin: 0 auto;
+  min-height: 80vmin;
+  margin: 10vh auto;
 
   p {
-    font-size: 17px;
+    font-size: clamp(16px, 1.8vw, 20px);
   }
 }
 
@@ -19,7 +19,7 @@
 }
 
 .contentTitle {
-  font-size: 27px;
+  font-size: clamp(26px, 5vw, 32px);
   filter: saturate(0.8) brightness(1.2);
 }
 

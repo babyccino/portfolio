@@ -5,8 +5,10 @@ $blurRadius: 15px;
 .project {
   position: relative;
   transition: transform 1s, opacity 1s;
-  margin: 60px 0;
+  margin: 3vh 0;
   min-height: 0;
+  border-radius: $blurRadius;
+  overflow: hidden;
 
   .contentInner {
     width: 100%;
@@ -31,16 +33,16 @@ $blurRadius: 15px;
     padding: $vPadding $hPadding;
   }
 
-  .description {
-    margin-top: 30px;
-    font-size: 20px;
-    letter-spacing: 0.05em;
-  }
-
   .contentTitle {
-    font-size: 25px;
+    font-size: clamp(20px, 4vw, 27px);
     margin: 0 0;
     width: 100%;
+  }
+
+  .description {
+    margin-top: 30px;
+    font-size: clamp(17px, 3vw, 20px);
+    letter-spacing: 0.05em;
   }
 
   .technologiesAndLinks {
@@ -53,6 +55,7 @@ $blurRadius: 15px;
 
   .technologies {
     word-spacing: 1em;
+    line-height: 1.5em;
     font-family: monospace;
   }
 
@@ -79,11 +82,32 @@ $blurRadius: 15px;
   flex-shrink: 0;
   position: relative;
   width: 100%;
-  border-radius: 10px;
+  border-radius: $blurRadius;
 
   display: inline-flex;
   flex-direction: column;
   justify-content: center;
 
   transition: filter 0.5s;
+}
+
+$vPaddingMobile: 20px;
+$hPaddingMobile: 30px;
+@media only screen and (max-width: 768px) {
+  .image {
+    width: 200%;
+  }
+
+  .contentInnerInner {
+    height: calc(100% - 2*$vPaddingMobile) !important;
+    padding: $vPaddingMobile $hPaddingMobile !important;
+  }  
+
+  .contentInner {
+    opacity: 1 !important;
+  }
+
+  .image {
+    filter: brightness(40%);
+  }
 }
