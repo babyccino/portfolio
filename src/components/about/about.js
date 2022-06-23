@@ -45,7 +45,7 @@ const About = () => {
             Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.          
           </p>
           <p>
-            <br />Languages/technologies I've used:
+            <br />Languages/technologies I&apos;ve used:
           </p>
           <p style={{color}} className={styles.technologies}>
             JavaScript React HTML CSS
@@ -56,7 +56,11 @@ const About = () => {
         className={multipleClasses(styles.image, styles.beforeFadeIn, inView ? styles.fadeIn : undefined)}
         style={{backgroundColor: color, animationDelay: "1000ms"}}
       >
-        <Image src={profile} style={{filter: "grayscale(100%)", mixBlendMode: "multiply", borderRadius: "10px"}} />
+        <Image
+          src={profile}
+          style={{filter: "grayscale(100%)", mixBlendMode: "multiply", borderRadius: "10px"}}
+          alt="Picture of me"
+        />
       </div>
     </section>
   );

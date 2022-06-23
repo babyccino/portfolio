@@ -25,11 +25,15 @@ const data = [
     technologies: ["react.js","next.js","sass","redux","figma"],
     links: [
       <SocialIcon
+        key={0}
         bgColor='rgba(0,0,0,0)'
         fgColor='rgb(230, 230, 230)'
         url={"https://github.com/babyccino/portfolio"}
       />,
-      <a href="/" style={{display: "flex", alignItems: "center", transform: "scale(1.5)", height: "50px", color: "rgb(230, 230, 230)"}}>
+      <a 
+        key={1}
+        style={{display: "flex", alignItems: "center", transform: "scale(1.5)", height: "50px", color: "rgb(230, 230, 230)"}}
+      >
         <FaExternalLinkAlt />
       </a>,
     ]
@@ -43,11 +47,16 @@ const data = [
     technologies: ["react.js","sass","redux","figma"],
     links: [
       <SocialIcon
+        key={0}
         bgColor='rgba(0,0,0,0)'
         fgColor='rgb(230, 230, 230)'
         url={"https://github.com/babyccino/Letterboxr"}
       />,
-      <a href="https://letterboxr.vercel.app/" style={{display: "flex", alignItems: "center", transform: "scale(1.5)", height: "50px", color: "rgb(230, 230, 230)"}}>
+      <a
+        key={1}
+        href="https://letterboxr.vercel.app/"
+        style={{display: "flex", alignItems: "center", transform: "scale(1.5)", height: "50px", color: "rgb(230, 230, 230)"}}
+      >
         <FaExternalLinkAlt />
       </a>,
     ]

@@ -34,7 +34,7 @@ const Contact = () => {
           style={{display: "inline-block", animationDelay: "500ms"}}
           className={multipleClasses(styles.beforeFadeIn, inView ? styles.fadeIn : undefined)}
         >
-          I'm currently open to any and all opportunties
+          I&apos;m currently open to any and all opportunties
         </p>
         <div className={multipleClasses(styles.buttonContainer, styles.beforeFadeIn, inView ? styles.fadeIn : undefined)}>
           <a

@@ -17,7 +17,7 @@ const Content = () => {
     <main className={styles.main}>
       
       <div className={styles.introduction}>
-        <h3 className={styles.hi}>Hi, I'm</h3>
+        <h3 className={styles.hi}>Hi, I&apos;m</h3>
         <h1 style={{backgroundImage: linearGradient("80deg", ...colorPalette, colorPalette[0])}} className={styles.name}>Gus Ryan.</h1>
         <h2 className={styles.tagline}>Will write code for food</h2>
       </div>
