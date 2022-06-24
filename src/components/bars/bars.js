@@ -18,6 +18,7 @@ const Bars = () => {
   const currentlyAnimating = useRef({currentlyAnimating: true, timeout: null, promise: null});
   
   let introStatus = useSelector(({introStatus}) => {
+    switch (introStatus) {
     case introStatusEnum.notVisible:
       return introStatusEnum.willDisappear;
     case introStatusEnum.requestUnmount:
