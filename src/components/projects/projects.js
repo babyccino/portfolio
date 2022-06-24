@@ -32,6 +32,7 @@ const data = [
       />,
       <a 
         key={1}
+        href="https://portfolio-babyccino.vercel.app/"
         style={{display: "flex", alignItems: "center", transform: "scale(1.5)", height: "50px", color: "rgb(230, 230, 230)"}}
       >
         <FaExternalLinkAlt />
