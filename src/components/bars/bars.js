@@ -9,12 +9,15 @@ import { introStatus as introStatusEnum } from '../util';
 
 const Bars = () => {
   const dispatch = useDispatch();
-
   const colorPalettes = useSelector(state => state.colorPalettes);
+  
+  // marks all the color palettes which are no longer visible as they are covered by others
+  // and no longer need to be rendered
   const dontRenderBefore = useRef(0);
+  
   const currentlyAnimating = useRef({currentlyAnimating: true, timeout: null, promise: null});
+  
   let introStatus = useSelector(({introStatus}) => {
-    switch (introStatus) {
     case introStatusEnum.notVisible:
       return introStatusEnum.willDisappear;
     case introStatusEnum.requestUnmount:
@@ -52,14 +55,14 @@ const Bars = () => {
       }, 1000);
     })
   }, [colorPalettes]);
+  
+  const config = { swipeDuration: 1500 };
+  const handlers = useSwipeable({
+    onSwipedUp: eventData => dispatch({type: "setIntroStatus", payload: introStatusEnum.requestUnmount}),
+    ...config,
+  });  
 
   const regularRender = useCallback(() => colorPalettes.map((palette, i) => {
-    const config = { swipeDuration: 1500 };
-    const handlers = useSwipeable({
-      onSwipedUp: eventData => dispatch({type: "setIntroStatus", payload: introStatusEnum.requestUnmount}),
-      ...config,
-    });  
-
     if (i < dontRenderBefore.current) return null;
 
     const style = styles.barContainer + (
