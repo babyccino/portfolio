@@ -1,5 +1,7 @@
-import React, { useCallback, useEffect, useRef, useState } from 'react';
+import React, { useCallback, useEffect, useRef } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+
+import { useSwipeable } from 'react-swipeable';
 
 import styles from './bars.module.scss';
 
@@ -49,15 +51,21 @@ const Bars = () => {
         res();
       }, 1000);
     })
-  }, [colorPalettes])
+  }, [colorPalettes]);
 
   const regularRender = useCallback(() => colorPalettes.map((palette, i) => {
+    const config = { swipeDuration: 1500 };
+    const handlers = useSwipeable({
+      onSwipedUp: eventData => dispatch({type: "setIntroStatus", payload: introStatusEnum.requestUnmount}),
+      ...config,
+    });  
+
     if (i < dontRenderBefore.current) return null;
 
     const style = styles.barContainer + (
       introStatus === introStatusEnum.willDisappear ? " " + styles.disappear : "");
     return (
-      <div key={i} className={styles.container}>
+      <div key={i} className={styles.container} {...handlers}>
         {palette.map((color, ii) => (
           <div key={i*100 + ii} style={{animationDelay: (color.charCodeAt(2) % 12 + 1)*0.03 + "s"}} className={style}>
             {/* <code className={styles.barHeader}>{color.toUpperCase()}</code> */}
