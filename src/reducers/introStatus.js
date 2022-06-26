@@ -1,6 +1,6 @@
-import { introStatus as introSatusEnum } from "../components/util";
+import { introStatus as introStatusEnum } from "../util";
 
-const introStatus = (state = introSatusEnum.visible, action) => {
+const introStatus = (state = introStatusEnum.visible, action) => {
   if (action.type === "setIntroStatus") return action.payload
   return state;
 }

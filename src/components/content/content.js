@@ -7,7 +7,7 @@ import About from '../about/about';
 import Projects from '../projects/projects';
 import Icons from '../icons';
 
-import { linearGradient } from '../util';
+import { linearGradient } from '../../util';
 import Contact from '../contact/contact';
 
 const Content = () => {

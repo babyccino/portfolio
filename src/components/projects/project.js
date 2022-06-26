@@ -5,7 +5,7 @@ import { useInView } from 'react-intersection-observer';
 
 import styles from './project.module.scss';
 
-import { multipleClasses } from '../util';
+import { multipleClasses } from '../../util';
 
 const Project = ({ color, title, description, image, technologies, links }) => {
   const options = {

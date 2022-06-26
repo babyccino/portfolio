@@ -6,7 +6,7 @@ import { useSelector } from 'react-redux';
 
 import styles from './about.module.scss';
 
-import { multipleClasses } from '../util';
+import { multipleClasses } from '../../util';
 
 import profile from '../../../public/profile.jpg';
 

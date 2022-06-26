@@ -1,4 +1,4 @@
-import { compareByBrightness } from "../components/util";
+import { compareByBrightness } from "../util";
 
 const shuffleArray = array => {
   for (let i = array.length - 1; i > 0; i--) {
