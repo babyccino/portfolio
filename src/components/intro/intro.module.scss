@@ -1,4 +1,4 @@
-$background: rgb(45, 45, 45);
+$background: rgb(25, 25, 29);
 
 .container {
   width: 100%;
@@ -13,20 +13,10 @@ $background: rgb(45, 45, 45);
   animation: fadeIn 0.7s ease-out 0s 1 normal forwards;
 }
 
-@media only screen and (max-width: 768px) {
-  .container {
-    flex-direction: column;
-  }  
-}
-
-@keyframes fadeIn {
-  to {background-color: $background;}
-}
 
 .welcomeContainer {
   height: 100%;
   flex-grow: 1;
-  line-height: 2;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -39,15 +29,17 @@ $background: rgb(45, 45, 45);
 .title {
   display: block;
   font-size: 3em;
-  font-family: 'Heebo';
+  font-family: 'Heebo', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   font-weight: 700;
   transition: 0.7s ease;
   margin: 0;
 }
 
 .instructions  {
+  line-height: 1.7;
   font-weight: 400;
   color: rgb(216, 216, 216);
+  margin-bottom: 2em;
 }
 
 .spacebar {
@@ -56,15 +48,9 @@ $background: rgb(45, 45, 45);
   animation: press 7s linear 5s infinite;
 }
 
-@keyframes press {
-  0% {transform: translateY(0px);}
-  2% {transform: translateY(3px);}
-  5% {transform: translateY(3px);}
-  7% {transform: translateY(0px);}
-}
 
 $upAnimationDuration: 12s;
-$upAnimationInitialDelay: 7s;
+$upAnimationInitialDelay: 3s;
 .upContainer {
   display: inline-block;
   position: relative;
@@ -79,19 +65,24 @@ $upAnimationInitialDelay: 7s;
     position: absolute;
     color: rgb(216, 216, 216);
   
-    animation: swipe $upAnimationDuration ease-in $upAnimationInitialDelay infinite normal forwards;
+    animation-duration: $upAnimationDuration;
+    animation-timing-function: ease-in;
+    animation-direction: normal;
+  }
+  
+  .upAnimated1 {
+    animation-name: swipe;
+    animation-delay: $upAnimationInitialDelay;
+    animation-fill-mode: forwards;
+    animation-iteration-count: infinite;
   }
   
   .upAnimated2 {
-    animation-delay: $upAnimationInitialDelay + $upAnimationDuration / 2;
+    animation-name: initialAppear, swipe;
+    animation-delay: $upAnimationInitialDelay, $upAnimationInitialDelay + $upAnimationDuration / 2;
+    animation-fill-mode: none, forwards;
+    animation-iteration-count: 1, infinite;
   }
-}
-
-@keyframes swipe {
-  0% {transform: translateY(0px); color: rgb(216, 216, 216);}
-  5% {transform: translateY(-20px); color: transparent};
-  53% {transform: translateY(0px); color: transparent};
-  59% {transform: translateY(0px); color: rgb(216, 216, 216);}
 }
 
 .barsContainer {
@@ -110,11 +101,46 @@ $upAnimationInitialDelay: 7s;
   }
 }
 
+
+
+@keyframes fadeIn {
+  to {background-color: $background;}
+}
+
 @keyframes fadeOut {
   from {opacity: 1;}
   to {opacity: 0;}
 }
 
+@keyframes press {
+  0% {transform: translateY(0px);}
+  2% {transform: translateY(3px);}
+  5% {transform: translateY(3px);}
+  7% {transform: translateY(0px);}
+}
+
+@keyframes swipe {
+  0% {transform: translateY(0px); color: rgb(216, 216, 216);}
+  5% {transform: translateY(20px); color: transparent};
+  53% {transform: translateY(0px); color: transparent};
+  59% {transform: translateY(0px); color: rgb(216, 216, 216);}
+  to {transform: translateY(0px); color: rgb(216, 216, 216);}
+}
+
+@keyframes initialAppear {
+  from {color: transparent;}
+  3% {color: transparent;}
+  9% {color: rgb(216, 216, 216);}
+}
+
 @keyframes swipeLeft {
   to {transform: translateX(-105%);}
+}
+
+
+
+@media only screen and (max-width: 768px) {
+  .container {
+    flex-direction: column;
+  }  
 }
