@@ -1,19 +1,21 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, Suspense } from 'react';
 import Head from 'next/head';
-import { useDispatch, useSelector } from 'react-redux';
+import dynamic from 'next/dynamic';
+import { useSelector } from 'react-redux';
 
 import styles from './home.module.scss';
 
-import Icons from '../icons';
-import Header from '../header/header';
 import Intro from '../intro/intro';
+const Header = dynamic(() => import('../header/header'));
+const Content = dynamic(() => import('../content/content'));
 
-import { introStatus as introStatusEnum } from '../util';
-import Content from '../content/content';
+import useCustomDispatch from '../../hooks/customDispatch';
+
+import { introStatus as introStatusEnum } from '../../util';
 
 const Home = () => {
   const isIntroVisible = useSelector(({ introStatus }) => (introStatus !== introStatusEnum.notVisible));
-  const colorPalette = useSelector(({ colorPalettes }) => colorPalettes[colorPalettes.length - 1]);
+  const dispatch = useCustomDispatch();
   const eventListeners = useRef([]);
 
   const removeListeners = () => {
@@ -26,14 +28,15 @@ const Home = () => {
     removeListeners();
   }
   
-  const dispatch = useDispatch();
   useEffect(() => {
     // React strict mode renders the component twice. This makes sures the listeners aren't instantiated twice
     removeListeners();
 
     const onKeyDown = ({ code }) => {
-      if (code === "Space") dispatch({type: "newColorPalette"});
-      if (code === "Enter") dispatch({type: "setIntroStatus", payload: introStatusEnum.requestUnmount});
+      switch (code) {
+      case "Space": return dispatch.newColorPalette();
+      case "Enter": return dispatch.requestUnmount();
+      }
     };
     document.addEventListener("keydown", onKeyDown);
     eventListeners.current.push(onKeyDown);
@@ -46,14 +49,15 @@ const Home = () => {
         <meta name="description" content="Gus Ryan" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
+        <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;700&display=swap" rel="stylesheet" />
       </Head>
 
       { isIntroVisible ?
         <Intro /> :
-        <>
-          <Header color1={colorPalette[0]} color2={colorPalette[1]} />
+        <Suspense>
+          <Header />
           <Content />
-        </>
+        </Suspense>
       }
 
     </div>
