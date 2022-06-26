@@ -37,10 +37,6 @@ $grey: rgb(224, 224, 224);
   animation: entry 1s ease-out 1.2s 1 normal both;
 }
 
-@keyframes entry {
-  to {transform: translateY(0);}
-}
-
 .logo {
   height: 30px;
 }
@@ -71,4 +67,10 @@ $grey: rgb(224, 224, 224);
 
 .icons {
   padding: 0;
+}
+
+
+
+@keyframes entry {
+  to {transform: translateY(0);}
 }

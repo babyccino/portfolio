@@ -18,10 +18,6 @@
   animation: lineEntry 1s ease-out 0s 1 normal forwards;
 }
 
-@keyframes lineEntry {
-  to {transform: translate(50%, 0);}
-}
-
 .iconsContainer {
   display: flex;
   flex-direction: column;
@@ -43,10 +39,6 @@
   }
 }
 
-@keyframes entry {
-  to {transform: none;}
-}
-
 @media only screen and (max-width: 768px) {
   .mainContainer {
     position: relative;
@@ -65,4 +57,14 @@
   .line {
     display: none;
   }
+}
+
+
+
+@keyframes entry {
+  to {transform: none;}
+}
+
+@keyframes lineEntry {
+  to {transform: translate(50%, 0);}
 }
