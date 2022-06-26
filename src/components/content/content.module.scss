@@ -5,12 +5,6 @@
   margin: auto;
 }
 
-@media only screen and (max-width: 768px) {
-  .main {
-    max-width: 85vw;
-  }
-}
-
 .introduction {
   display: flex;
   flex-direction: column;
@@ -24,7 +18,7 @@
   animation: fadeIn 1s ease-in-out 0s 1 normal forwards;
 }
 
-.hi {
+.hi, .tagline {
   margin: 0;
 
   opacity: 0;
@@ -50,8 +44,20 @@
   -moz-text-fill-color: transparent;
 
   opacity: 0;
-  animation: movingGradient 20s ease-in-out 0s infinite alternate, fadeIn 0.5s ease-in-out 0.2s 1 normal forwards;
+  animation: movingGradient 20s ease-in-out -5s infinite alternate, fadeIn 0.5s ease-in-out 0.2s 1 normal forwards;
 }
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+  font-size: clamp(12px, 1.4vmax, 16px);
+  color: rgb(136, 136, 136);
+  padding-bottom: 2em;
+}
+
+
 
 @keyframes movingGradient {
   from {
@@ -60,13 +66,6 @@
   to {
     background-position: 80em 0;
   }
-}
-
-.tagline {
-  margin: 0;
-  opacity: 0;
-  font-size: clamp(15px, 2vmax, 30px);
-  animation: fadeIn 0.5s ease-in-out 0.4s 1 normal forwards;
 }
 
 @keyframes fadeIn {
@@ -80,12 +79,10 @@
   }
 }
 
-.footer {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  text-align: center;
-  font-size: clamp(12px, 1.4vmax, 16px);
-  color: rgb(136, 136, 136);
-  padding-bottom: 2em;
+
+
+@media only screen and (max-width: 768px) {
+  .main {
+    max-width: 85vw;
+  }
 }
