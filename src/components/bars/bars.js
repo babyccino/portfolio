@@ -4,8 +4,6 @@ import useCustomDispatch from '../../hooks/customDispatch';
 
 import { useSwipeable } from 'react-swipeable';
 
-import { useSwipeable } from 'react-swipeable';
-
 import styles from './bars.module.scss';
 
 import { introStatus as introStatusEnum } from '../../util';
