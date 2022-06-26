@@ -4,6 +4,8 @@ import useCustomDispatch from '../../hooks/customDispatch';
 
 import { useSwipeable } from 'react-swipeable';
 
+import { useSwipeable } from 'react-swipeable';
+
 import styles from './bars.module.scss';
 
 import { introStatus as introStatusEnum } from '../../util';
@@ -12,7 +14,11 @@ const Bars = () => {
   const dispatch = useCustomDispatch();
 
   const colorPalettes = useSelector(state => state.colorPalettes);
+  
+  // marks all the color palettes which are no longer visible as they are covered by others
+  // and no longer need to be rendered
   const dontRenderBefore = useRef(0);
+  
   const currentlyAnimating = useRef({currentlyAnimating: true, timeout: null, promise: null});
   let introStatus = useSelector(({ introStatus }) => {
     switch (introStatus) {
