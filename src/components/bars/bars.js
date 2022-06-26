@@ -1,39 +1,39 @@
-import React, { useCallback, useEffect, useRef, useState } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import React, { useCallback, useEffect, useRef } from 'react';
+import { useSelector } from 'react-redux';
+import useCustomDispatch from '../../hooks/customDispatch';
+
+import { useSwipeable } from 'react-swipeable';
 
 import styles from './bars.module.scss';
 
-import { introStatus as introStatusEnum } from '../util';
+import { introStatus as introStatusEnum } from '../../util';
 
 const Bars = () => {
-  const dispatch = useDispatch();
+  const dispatch = useCustomDispatch();
 
   const colorPalettes = useSelector(state => state.colorPalettes);
   const dontRenderBefore = useRef(0);
   const currentlyAnimating = useRef({currentlyAnimating: true, timeout: null, promise: null});
-  let introStatus = useSelector(({introStatus}) => {
+  let introStatus = useSelector(({ introStatus }) => {
     switch (introStatus) {
-    case introStatusEnum.notVisible:
-      return introStatusEnum.willDisappear;
     case introStatusEnum.requestUnmount:
       if (currentlyAnimating.current.currentlyAnimating) {
-        currentlyAnimating.current.promise.then(() => {
-          dispatch({type: "setIntroStatus", payload: introStatusEnum.willDisappear});
-        });
+        currentlyAnimating.current.promise.then(() => dispatch.willDisappear());
         return introStatusEnum.visible;
       }
       
-      dispatch({type: "setIntroStatus", payload: introStatusEnum.willDisappear});
+      dispatch.willDisappear();
       return introStatusEnum.willDisappear;
     case introStatusEnum.visible:
     case introStatusEnum.willDisappear:
+    case introStatusEnum.notVisible:
     default:
       return introStatus;
     }
   });
 
   if (introStatus === introStatusEnum.willDisappear) 
-    setTimeout(() => dispatch({type: "setIntroStatus", payload: introStatusEnum.notVisible}), 1000);
+    setTimeout(() => dispatch.notVisible(), 1000);
 
   useEffect(() => {
     const i = colorPalettes.length - 1;
@@ -49,15 +49,23 @@ const Bars = () => {
         res();
       }, 1000);
     })
-  }, [colorPalettes])
+  }, [colorPalettes]);
 
+  const config = { swipeDuration: 1500 };
+  const handlers = useSwipeable({
+    onSwipedUp: () => dispatch.newColorPalette(),
+    ...config,
+  });
+  
   const regularRender = useCallback(() => colorPalettes.map((palette, i) => {
     if (i < dontRenderBefore.current) return null;
 
-    const style = styles.barContainer + (
-      introStatus === introStatusEnum.willDisappear ? " " + styles.disappear : "");
+    let style = styles.barContainer;
+    if (introStatus === introStatusEnum.willDisappear || introStatus === introStatusEnum.notVisible) {
+      style += (" " + styles.disappear)
+    }
     return (
-      <div key={i} className={styles.container}>
+      <div key={i} className={styles.container} {...handlers}>
         {palette.map((color, ii) => (
           <div key={i*100 + ii} style={{animationDelay: (color.charCodeAt(2) % 12 + 1)*0.03 + "s"}} className={style}>
             {/* <code className={styles.barHeader}>{color.toUpperCase()}</code> */}
