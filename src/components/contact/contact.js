@@ -2,9 +2,10 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import { useInView } from 'react-intersection-observer';
 
-import { linearGradient, multipleClasses } from '../util';
+import { multipleClasses } from '../../util';
 
 import styles from './contact.module.scss';
+import Button from '../button/button';
 
 const Contact = () => {
   const options = {
@@ -37,18 +38,7 @@ const Contact = () => {
           I&apos;m currently open to any and all opportunties
         </p>
         <div className={multipleClasses(styles.buttonContainer, styles.beforeFadeIn, inView ? styles.fadeIn : undefined)}>
-          <a
-            className={styles.emailButton}
-            href='mailto:gus.ryan163@gmail.com'
-            role="button"
-            style={{
-              borderColor: color,
-              color,
-              backgroundImage: linearGradient("90deg", color, color + " 49%", "transparent 50%")
-            }}
-          >
-            email me
-          </a>
+          <Button href='mailto:gus.ryan163@gmail.com' color={color}>Email me</Button>
         </div>
       </div>
     </section>

@@ -29,23 +29,3 @@
   text-align: center;
   margin: 2em 0;
 }
-
-.emailButton {
-  padding: 10px 20px;
-  border-radius: 5px;
-  border-style: solid;
-  border-width: 1px;
-
-  background-size: 205%;
-  background-repeat: no-repeat;
-  background-position: -12em 0;
-  background-blend-mode: overlay;
-
-  transition: background-position 0.3s, color 0.3s 0.1s;
-  transition-timing-function: linear;
-
-  &:hover {
-    background-position: 0 0;
-    color: rgb(25,25,30) !important;
-  }
-}
