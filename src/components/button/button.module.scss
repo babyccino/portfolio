@@ -11,11 +11,14 @@
   background-position: 100% 0;
   background-blend-mode: overlay;
 
-  transition: 0.3s;
-  transition-timing-function: ease;
+  transition: background-position 0.3s, color 0.3s, transform 0.1s;
 
   &:hover {
     background-position: 0 0;
     color: rgb(25,25,30) !important;
+  }
+
+  &:active {
+    transform: translateY(4px);
   }
 }

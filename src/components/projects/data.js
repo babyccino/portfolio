@@ -30,9 +30,9 @@ const data = [
   },
   {
     title: "LetterBoxr",
-    description: 'I created this portfolio page from scratch, using no css libraries, taking inspiration \
-      from other portfolio sites but trying to add as much of my own flair as I could. I used css animations \
-      as much as possible for performance.',
+    description: 'Instagram only allows photos with aspect ratios between 4:5 and 16:9 for posts, and \
+      only gives you the option to crop when posting photos outside this range. I created this site to \
+      give me and others an easy option to letterbox our images instead of cropping.',
     image: letterBoxr,
     technologies: ["react.js","sass","redux","figma"],
     links: [

@@ -24,9 +24,9 @@ const Intro = () => {
           Press <span className={styles.spacebar}>spacebar</span><br />  
           or swipe&nbsp;
           <span className={styles.upContainer}>
-            <span className={styles.upAnimated1}>down</span>
-            <span className={styles.upAnimated2}>down</span>
-            <span className={styles.upTransparent}>down</span>
+            <span className={styles.upAnimated1}>up</span>
+            <span className={styles.upAnimated2}>up</span>
+            <span className={styles.upTransparent}>up</span>
           </span>
           <br />
           to try a new color palette

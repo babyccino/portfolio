@@ -37,12 +37,11 @@ const About = () => {
           className={multipleClasses(styles.beforeFadeIn, inView ? styles.fadeIn : undefined)}
         >
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+            Hi! My name is Gus and I enjoy creating things for the internet. I've been interested in web development for a few years but
+            recently decided to try and turn my passion into a career.
           </p>
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.          
+            I'm originally from Perth, Western Australia but currently based in Canada
           </p>
           <p>
             <br />Languages/technologies I&apos;ve used:

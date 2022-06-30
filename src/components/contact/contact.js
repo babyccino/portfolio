@@ -32,12 +32,15 @@ const Contact = () => {
           <h3 style={{color}} className={styles.contentTitle}>Always down to chat</h3>
         </div>
         <p
-          style={{display: "inline-block", animationDelay: "500ms"}}
+          style={{display: "inline-block", animationDelay: "400ms"}}
           className={multipleClasses(styles.beforeFadeIn, inView ? styles.fadeIn : undefined)}
         >
           I&apos;m currently open to any and all opportunties
         </p>
-        <div className={multipleClasses(styles.buttonContainer, styles.beforeFadeIn, inView ? styles.fadeIn : undefined)}>
+        <div
+          style={{animationDelay: "600ms"}}
+          className={multipleClasses(styles.buttonContainer, styles.beforeFadeIn, inView ? styles.fadeIn : undefined)}
+        >
           <Button href='mailto:gus.ryan163@gmail.com' color={color}>Email me</Button>
         </div>
       </div>

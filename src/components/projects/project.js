@@ -37,7 +37,7 @@ const Project = ({ color, title, description, image, technologies, links }) => {
         </div>
       </div>
       <div className={styles.image}>
-        <Image src={image} style={{borderRadius: "10px"}} />
+        <Image src={image} style={{borderRadius: "10px"}} placeholder='blur' />
       </div>
     </div>
   );
