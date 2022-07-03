@@ -10,6 +10,14 @@ import { introStatus as introStatusEnum } from '../../util';
 import Bars from '../bars/bars';
 import Button from '../button/button';
 
+const Right = () => (
+  <span className={styles.rightContainer}>
+    <span className={styles.rightAnimated1}>right</span>
+    <span className={styles.rightAnimated2}>right</span>
+    <span className={styles.rightTransparent}>right</span>
+  </span>
+);
+
 const Intro = () => {
   const willDisappear = useSelector(({ introStatus }) => introStatus >= introStatusEnum.willDisappear);
   const colorPalette = useSelector(({ colorPalettes }) => colorPalettes[colorPalettes.length - 1]);
@@ -21,17 +29,11 @@ const Intro = () => {
       <div className={styles.welcomeContainer}>
         <h1 style={{color: colorPalette[0]}} className={styles.title}>Welcome</h1>
         <h2 className={styles.instructions}>
-          Press <span className={styles.spacebar}>spacebar</span><br />  
-          or swipe&nbsp;
-          <span className={styles.upContainer}>
-            <span className={styles.upAnimated1}>up</span>
-            <span className={styles.upAnimated2}>up</span>
-            <span className={styles.upTransparent}>up</span>
-          </span>
-          <br />
-          to try a new color palette
+        Don’t like the color palette? Then neither do I! <br />
+          Press <span style={{color: colorPalette[1]}} className={styles.spacebar}>spacebar</span> or&nbsp;
+          <span style={{color: colorPalette[1]}}>swipe&nbsp;<Right /></span>&nbsp;to change it
         </h2>
-        <div>
+        <div className={styles.button}>
           <Button color={colorPalette[1]} onClick={requestUnmount}>Click to enter flavour country</Button>
         </div>
       </div>

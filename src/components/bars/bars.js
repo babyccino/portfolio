@@ -6,16 +6,12 @@ import { useSwipeable } from 'react-swipeable';
 
 import styles from './bars.module.scss';
 
-import { introStatus as introStatusEnum } from '../../util';
+import { introStatus as introStatusEnum, multipleClasses } from '../../util';
 
 const Bars = () => {
   const dispatch = useCustomDispatch();
 
   const colorPalettes = useSelector(state => state.colorPalettes);
-  
-  // marks all the color palettes which are no longer visible as they are covered by others
-  // and no longer need to be rendered
-  const dontRenderBefore = useRef(0);
   
   const currentlyAnimating = useRef({currentlyAnimating: true, timeout: null, promise: null});
   let introStatus = useSelector(({ introStatus }) => {
@@ -36,12 +32,15 @@ const Bars = () => {
     }
   });
 
+  const firstAngle = -21;
+  const firstBarDuration = 1 * 1000;
+  const animationTime = firstBarDuration * (2 * (-firstAngle)/(firstAngle + 90) + 1);
+
   if (introStatus === introStatusEnum.willDisappear) 
-    setTimeout(() => dispatch.notVisible(), 1000);
+    setTimeout(() => dispatch.notVisible(), animationTime);
 
   useEffect(() => {
     const i = colorPalettes.length - 1;
-    setTimeout(() => dontRenderBefore.current = i, 1000);
 
     clearTimeout(currentlyAnimating.current.timeout);
     currentlyAnimating.current.currentlyAnimating = true;
@@ -51,36 +50,46 @@ const Bars = () => {
         currentlyAnimating.current.currentlyAnimating = false;
 
         res();
-      }, 1000);
+      }, animationTime);
     })
   }, [colorPalettes]);
 
-  const config = { swipeDuration: 1500 };
-  const handlers = useSwipeable({
-    onSwipedUp: () => dispatch.newColorPalette(),
-    ...config,
-  });
-  
-  const regularRender = useCallback(() => colorPalettes.map((palette, i) => {
-    if (i < dontRenderBefore.current) return null;
-
-    let style = styles.barContainer;
-    if (introStatus === introStatusEnum.willDisappear || introStatus === introStatusEnum.notVisible) {
-      style += (" " + styles.disappear)
+  useEffect(() => {
+    const onKeyDown = ({ code }) => {
+      if (code === "Space" && introStatus === introStatusEnum.visible) 
+        currentlyAnimating.current.promise.then(() => dispatch.newColorPalette());        
     }
-    return (
-      <div key={i} className={styles.container} {...handlers}>
-        {palette.map((color, ii) => (
-          <div key={i*100 + ii} style={{animationDelay: (color.charCodeAt(2) % 12 + 1)*0.03 + "s"}} className={style}>
-            {/* <code className={styles.barHeader}>{color.toUpperCase()}</code> */}
-            <div style={{backgroundColor: color}} className={styles.barColor}></div>
-          </div>
-        ))}
-      </div>
-    );
-  }));
 
-  return regularRender();
+    document.addEventListener("keydown", onKeyDown);
+    return () => document.removeEventListener("keydown", onKeyDown);
+  }, []);
+
+  const handlers = useSwipeable({
+    onSwipedRight: () => dispatch.newColorPalette(),
+    swipeDuration: 1500,
+  });
+
+  const len = colorPalettes.length;
+  return (
+    <div className={styles.container} {...handlers} >
+      {colorPalettes[len - 1].map((color, ii) => (
+        <div
+          key={"" + len + " " + ii}
+          className={multipleClasses(styles[introStatus < introStatusEnum.willDisappear ? `swipeIn${ii}` : `swipeOut${ii}`], styles.bar)}
+          style={{backgroundColor: color}}
+        />
+      ))}
+      {len <= 1 ? null :
+        colorPalettes[len - 2].map((color, ii) => (
+          <div
+            key={"" + len + " " + ii}
+            className={multipleClasses(styles[`swipeOut${ii}`], styles.bar)}
+            style={{backgroundColor: color}}
+          />
+        ))
+      }
+    </div>
+  );
 };
 
 export default React.memo(Bars);
