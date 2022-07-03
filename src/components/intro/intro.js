@@ -34,7 +34,7 @@ const Intro = () => {
           <span style={{color: colorPalette[1]}}>swipe&nbsp;<Right /></span>&nbsp;to change it
         </h2>
         <div className={styles.button}>
-          <Button color={colorPalette[1]} onClick={requestUnmount}>Click to enter flavour country</Button>
+          <Button color={colorPalette[1]} onClick={requestUnmount}>Enter flavour country</Button>
         </div>
       </div>
       <div className={styles.barsContainer}>
