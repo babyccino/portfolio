@@ -1,56 +1,61 @@
+$barWidth: 10vmax;
+$pivotPoint: 60vmin;
+
 .container {
   display: flex;
-  z-index: 3;
+  flex-direction: column;
   height: 100%;
-  width: 100%;
-  position: absolute
-}
+  position: relative;
 
-.barContainer {
-  flex: 1;
+  justify-items: center;
   align-items: center;
-  transform: translateY(110%);
-  width: 100%;
-  overflow: hidden;
-
-  animation-name: swipeIn;
-  animation-duration: 0.7s;
-  animation-timing-function: ease-out;
-  animation-iteration-count: 1;
-  animation-direction: alternate;
-  animation-fill-mode: forwards;
 }
 
-.disappear {
-  transform: translateY(0px);
+.bar {
+  position: absolute;
+  bottom: -$pivotPoint;
+  width: $barWidth;
+  height: calc(98% + $pivotPoint);
 
-  animation: swipeOut 0.3s ease-in 0s 1 normal forwards;
+  transform-origin: 50% calc(100% - $barWidth/2);
+  transform: rotate(-90deg);
+
+  border-radius: 15px;
 }
-
-.barHeader {
-  color: black;
-  display: block;
-  text-align: center;
-  margin: 10px;
-  font-size: 15px;
-}
-
-.barColor {
-  height: 100%;
-}
-
-.displayNone {
-  display: none;
-}
-
 
 
 @keyframes swipeOut {
-  from {transform: translateY(0px);}
-  to {transform: translateY(110%);}
+  to {transform: rotate(90deg);}
 }
 
-@keyframes swipeIn {
-  from {transform: translateY(110%);}
-  to {transform: translateY(0px);}
+$firstAngle: -21;
+$angluarDistanceToFirstBar: $firstAngle - (-90);
+$initialAngleDifference: (-1)*$firstAngle / 2;
+$firstBarDuration: 1;
+
+@for $i from 0 through 4 {
+  $angleDifference: $i * $initialAngleDifference;
+
+  @keyframes swipeIn#{$i} {
+    to {transform: rotate(#{$firstAngle + $angleDifference}deg);}
+  }
+  
+  .swipeIn#{$i} {
+    animation-name: swipeIn#{$i};
+    animation-duration: 1s * $firstBarDuration * ($angleDifference/$angluarDistanceToFirstBar + 1);
+    animation-timing-function: ease;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+  }
+  
+  $angluarVelocity: $angluarDistanceToFirstBar / $firstBarDuration;
+  .swipeOut#{$i} {
+    transform: rotate(1deg * ($firstAngle + $angleDifference));
+    animation-name: swipeOut;
+    animation-duration: 1s * (((4 - $i) * $initialAngleDifference)/$angluarDistanceToFirstBar + 1);
+    animation-delay: 1s * $angleDifference / $angluarVelocity;
+    animation-timing-function: ease-in;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+  }
 }

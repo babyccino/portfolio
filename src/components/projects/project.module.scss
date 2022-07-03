@@ -13,24 +13,18 @@ $blurRadius: 15px;
   .contentInner {
     width: 100%;
     height: 100%;
-    padding: $blurRadius;
-    transform: translate(-$blurRadius, -$blurRadius);
 
     opacity: 0;
-    border-radius: $blurRadius;
     position: absolute;
     z-index: 2;
     backdrop-filter: blur(10px);
-    transition: opacity 0.3s;
-  }
-  
-  $vPadding: 40px;
-  $hPadding: 55px;
-  .contentInnerInner {
-    height: calc(100% - 2*$vPadding);
+    transition: opacity 0.3s; 
+
+    box-sizing: border-box;
+    height: 100%;
     display: flex;
     flex-direction: column;
-    padding: $vPadding $hPadding;
+    padding: 40px 55px;
   }
 
   .contentTitle {
@@ -40,8 +34,8 @@ $blurRadius: 15px;
   }
 
   .description {
-    margin-top: 30px;
     font-size: clamp(17px, 3vw, 20px);
+    margin-top: 30px;
     letter-spacing: 0.05em;
   }
 
@@ -93,19 +87,14 @@ $blurRadius: 15px;
 
 
 
-$vPaddingMobile: 20px;
-$hPaddingMobile: 30px;
 @media only screen and (max-width: 768px) {
   .image {
     width: 200%;
   }
 
-  .contentInnerInner {
-    height: calc(100% - 2*$vPaddingMobile) !important;
-    padding: $vPaddingMobile $hPaddingMobile !important;
-  }  
-
   .contentInner {
+    padding: 20px 30px !important;
+    
     opacity: 1 !important;
   }
 

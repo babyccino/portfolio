@@ -16,30 +16,18 @@ import { introStatus as introStatusEnum } from '../../util';
 const Home = () => {
   const isIntroVisible = useSelector(({ introStatus }) => (introStatus !== introStatusEnum.notVisible));
   const dispatch = useCustomDispatch();
-  const eventListeners = useRef([]);
+  const removeEventListener = useRef(null);
 
-  const removeListeners = () => {
-    for (const listener of eventListeners.current) {
-      document.removeEventListener("keydown", listener);
-    }
-  }
-
-  if (!isIntroVisible) {
-    removeListeners();
+  if (!isIntroVisible && removeEventListener.current) {
+    removeEventListener.current();
   }
   
   useEffect(() => {
-    // React strict mode renders the component twice. This makes sures the listeners aren't instantiated twice
-    removeListeners();
+    const onKeyDown = ({ code }) => { if (code === "Enter") dispatch.requestUnmount(); }
 
-    const onKeyDown = ({ code }) => {
-      switch (code) {
-      case "Space": return dispatch.newColorPalette();
-      case "Enter": return dispatch.requestUnmount();
-      }
-    };
     document.addEventListener("keydown", onKeyDown);
-    eventListeners.current.push(onKeyDown);
+    removeEventListener.current = () => document.removeEventListener("keydown", onKeyDown);
+    return removeEventListener.current;
   }, []);
 
   return (

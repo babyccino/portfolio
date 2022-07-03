@@ -21,23 +21,21 @@ const Project = ({ color, title, description, image, technologies, links }) => {
       ref={inViewRef}
     >
       <div className={styles.contentInner}>
-        <div className={styles.contentInnerInner}>
-          <h3 style={{color}} className={styles.contentTitle}>{title}</h3>
-          <span className={styles.description}>
-            {description}
-          </span>
-          <div className={styles.technologiesAndLinks}>
-            <div className={styles.technologies}>
-              {technologies.join(" ")}
-            </div>
-            <div className={styles.links}>
-              {links}
-            </div>
+        <h3 style={{color}} className={styles.contentTitle}>{title}</h3>
+        <span className={styles.description}>
+          {description}
+        </span>
+        <div className={styles.technologiesAndLinks}>
+          <div className={styles.technologies}>
+            {technologies.join(" ")}
+          </div>
+          <div className={styles.links}>
+            {links}
           </div>
         </div>
       </div>
       <div className={styles.image}>
-        <Image src={image} style={{borderRadius: "10px"}} placeholder='blur' />
+        <Image src={image} style={{borderRadius: "10px"}} placeholder='blur' alt={title} />
       </div>
     </div>
   );
