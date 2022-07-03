@@ -41,7 +41,7 @@ const About = () => {
             recently decided to try and turn my passion into a career.
           </p>
           <p>
-            I'm originally from Perth, Western Australia but currently based in Canada
+            I&apos;m originally from Perth, Western Australia but currently based in Canada
           </p>
           <p>
             <br />Languages/technologies I&apos;ve used:
