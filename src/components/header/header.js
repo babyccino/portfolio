@@ -1,10 +1,10 @@
 import React, {  } from 'react';
-import { Link } from "react-scroll";
+import { Link, animateScroll } from "react-scroll";
 import { useSelector } from 'react-redux';
 
 import useIsScrollingUp from '../../hooks/scrollUp';
 import useIsTopOfPage from '../../hooks/topOfPage';
-import { multipleClasses } from '../../util';
+import { multipleClasses, linearGradient } from '../../util';
 
 import styles from './header.module.scss'
 
@@ -16,15 +16,21 @@ const Header = () => {
   
   return (
     <div
-    style={{color: color1}}
-      className={multipleClasses(styles.mainContainer, scrollUp ? undefined : styles.scrollUp, topOfPage ? undefined : styles.topOfPage)}
+      style={{color: color1}}
+      className={multipleClasses(topOfPage ? styles.topOfPage : undefined, scrollUp ? undefined : styles.scrollUp, styles.mainContainer)}
     >
       <div className={styles.contentContainer}>
-        <div className={styles.logo}><Logo color1={color1} color2={color2} /></div>
+        <a
+          className={styles.logo}
+          style={{backgroundImage: linearGradient("135deg", colorPalette[0], colorPalette[1])}}
+          onClick={() => animateScroll.scrollToTop()}
+        >
+          G
+        </a>
         <nav className={styles.sections}>
           <Link to="about" smooth offset={-56} style={{borderColor: color1}}>About</Link>
           <Link to="projects" smooth offset={-56} style={{borderColor: color1}}>Projects</Link>
-          <Link to="contact" smooth offset={-56} style={{borderColor: color1}}>Contact</Link>
+          <a style={{borderColor: color1}} onClick={() => animateScroll.scrollToBottom()}>Contact</a>
         </nav>
       </div>
     </div>

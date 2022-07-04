@@ -1,7 +1,7 @@
 .main {
   position: relative;
   min-height: 100vh;
-  max-width: clamp(0px, 80vw, 1000px);
+  max-width: clamp(0px, 80vw, 1300px);
   margin: auto;
 }
 
@@ -33,7 +33,7 @@
   font-size: clamp(60px, 8vmax, 120px);
   margin: 0;
 
-  background-color: red;
+  background-color: rgb(231, 231, 231);
   
   background-size: 1000%;
   background-repeat: repeat;
