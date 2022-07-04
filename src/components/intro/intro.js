@@ -29,9 +29,12 @@ const Intro = () => {
       <div className={styles.welcomeContainer}>
         <h1 style={{color: colorPalette[0]}} className={styles.title}>Welcome</h1>
         <h2 className={styles.instructions}>
-        Don’t like the color palette? Then neither do I! <br />
-          Press <span style={{color: colorPalette[1]}} className={styles.spacebar}>spacebar</span> or&nbsp;
-          <span style={{color: colorPalette[1]}}>swipe&nbsp;<Right /></span>&nbsp;to change it
+          Don&apos;t like the color palette? Then neither do I! <br />
+          Press&nbsp;
+          <span style={{color: colorPalette[1]}} className={styles.spacebar}>spacebar</span>
+          &nbsp;or&nbsp;
+          <span style={{color: colorPalette[1]}}>swipe&nbsp;<Right /></span>
+          &nbsp;to change it
         </h2>
         <div className={styles.button}>
           <Button color={colorPalette[1]} onClick={requestUnmount}>Enter flavour country</Button>

@@ -6,6 +6,10 @@ body {
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }
 
+* {
+  box-sizing: border-box;
+}
+
 div::selection, p::selection, a::selection, h1::selection, h2::selection, h3::selection, span::selection, br::selection {
   background: rgba(186, 186, 219, 0.26);
 }

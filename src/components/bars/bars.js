@@ -13,7 +13,7 @@ const Bars = () => {
 
   const colorPalettes = useSelector(state => state.colorPalettes);
   
-  const currentlyAnimating = useRef({currentlyAnimating: true, timeout: null, promise: null});
+  const currentlyAnimating = useRef({currentlyAnimating: true, timeout: null, promise: null, queue: false});
   let introStatus = useSelector(({ introStatus }) => {
     switch (introStatus) {
     case introStatusEnum.requestUnmount:
@@ -54,18 +54,31 @@ const Bars = () => {
     })
   }, [colorPalettes]);
 
-  useEffect(() => {
-    const onKeyDown = ({ code }) => {
-      if (code === "Space" && introStatus === introStatusEnum.visible) 
-        currentlyAnimating.current.promise.then(() => dispatch.newColorPalette());        
+  // allow user to queue one newColorPalette action but no more than one
+  const handleNewColorPalette = () => {
+    if (introStatus === introStatusEnum.visible) {
+      if (currentlyAnimating.current.currentlyAnimating && !currentlyAnimating.current.queue) {
+        currentlyAnimating.current.queue = true;
+        currentlyAnimating.current.promise.then(() => {
+          dispatch.newColorPalette()
+          currentlyAnimating.current.queue = false;
+        });        
+      }
+      if (!currentlyAnimating.current.currentlyAnimating) {
+        dispatch.newColorPalette()
+      }
     }
+  }
+
+  useEffect(() => {
+    const onKeyDown = ({ code }) => code === "Space" ? handleNewColorPalette() : null;
 
     document.addEventListener("keydown", onKeyDown);
     return () => document.removeEventListener("keydown", onKeyDown);
   }, []);
 
   const handlers = useSwipeable({
-    onSwipedRight: () => dispatch.newColorPalette(),
+    onSwipedRight: handleNewColorPalette,
     swipeDuration: 1500,
   });
 
