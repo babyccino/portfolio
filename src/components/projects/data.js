@@ -3,6 +3,7 @@ import { FaExternalLinkAlt } from 'react-icons/fa';
 
 import portfolioImage from '../../../public/portfolio.jpg';
 import letterBoxr from '../../../public/letterBoxr.jpg';
+import donationReceipt from '../../../public/donation-receipt.jpg';
 
 const data = [
   {
@@ -49,6 +50,24 @@ const data = [
       >
         <FaExternalLinkAlt />
       </a>,
+    ]
+  },
+  {
+    title: "QBO Donation Receipt Generator",
+    description: 'While QuickBooks Online is the most popular accounting software it gives no option for generating \
+      yearly donation receipts for non-profits. I found third party applications lacking so I created one myself. \
+      The application simply takes data in the form of CSVs and generates a simple donation receipt PDF. \
+      The application can be set to either create gmail drafts for the donors, send the receipts out automatically \
+      or save the files to disk',
+    image: donationReceipt,
+    technologies: ["node.js"],
+    links: [
+      <SocialIcon
+        key={0}
+        bgColor='rgba(0,0,0,0)'
+        fgColor='rgb(230, 230, 230)'
+        url={"https://github.com/babyccino/donation-receipts"}
+      />
     ]
   },
 ];
