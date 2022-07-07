@@ -23,14 +23,17 @@ const Projects = () => {
     <section
       className={multipleClasses(styles.content, styles.projects)}
       ref={inViewRef}
-      id="projects"
-    >
+      >
       <div className={styles.contentInner}>
         <div
           className={multipleClasses(styles.contentTitleContainer, styles.beforeFadeIn, inView ? styles.fadeIn : undefined)}
           style={{animationDelay: "200ms"}}
-        >
-          <h3 style={{color: colorPalette[2]}} className={styles.contentTitle}>My Projects</h3>
+          >
+          <h3 
+            style={{color: colorPalette[2]}}
+            className={styles.contentTitle}
+            id="projects"
+          >My Projects</h3>
           <hr style={{borderColor: colorPalette[2]}} className={multipleClasses(styles.line, styles.projectLine)} />
         </div>
       </div>
