@@ -37,7 +37,7 @@ const Intro = () => {
           &nbsp;to change it
         </h2>
         <div className={styles.button}>
-          <Button color={colorPalette[1]} onClick={requestUnmount}>Enter flavour country</Button>
+          <Button color={colorPalette[1]} onClick={requestUnmount}>Come and learn about me!</Button>
         </div>
       </div>
       <div className={styles.barsContainer}>
