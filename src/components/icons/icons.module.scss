@@ -29,7 +29,7 @@
 .icons {
   padding: 0;
 
-  transition: 0.2s ease;
+  transition: 0.3s ease;
   transform: translateY(250px);
 
   animation: entry 0.4s ease-out 0s 1 normal forwards;
@@ -38,6 +38,18 @@
     transform: translateY(-1px) !important;
   }
 }
+
+
+
+@keyframes entry {
+  to {transform: scale(0.9);}
+}
+
+@keyframes lineEntry {
+  to {transform: translate(50%, 0);}
+}
+
+
 
 @media only screen and (max-width: 768px) {
   .mainContainer {
@@ -57,14 +69,4 @@
   .line {
     display: none;
   }
-}
-
-
-
-@keyframes entry {
-  to {transform: scale(0.9);}
-}
-
-@keyframes lineEntry {
-  to {transform: translate(50%, 0);}
 }
