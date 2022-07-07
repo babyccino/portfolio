@@ -1,5 +1,4 @@
 import React, { useEffect, useRef, Suspense } from 'react';
-import Head from 'next/head';
 import dynamic from 'next/dynamic';
 import { useSelector } from 'react-redux';
 
@@ -32,13 +31,6 @@ const Home = () => {
 
   return (
     <div className={styles.container}>
-      <Head>
-        <title>Gus Ryan</title>
-        <meta name="description" content="Gus Ryan" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/icon.png" />
-        <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;700&display=swap" rel="stylesheet" />
-      </Head>
 
       { isIntroVisible ?
         <Intro /> :
