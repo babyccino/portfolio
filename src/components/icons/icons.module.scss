@@ -14,7 +14,9 @@
 .line {
   height: 50px;
   border-left: 1px solid red;
-  transform: translate(50%, 250px);
+
+  transform: translate(50%, 50%);
+  opacity: 1;
   animation: lineEntry 0.4s ease-out 0s 1 normal forwards;
 }
 
@@ -30,7 +32,8 @@
   padding: 0;
 
   transition: 0.3s ease;
-  transform: translateY(250px);
+  transform: translateY(140%);
+  opacity: 0;
 
   animation: entry 0.4s ease-out 0s 1 normal forwards;
 
@@ -42,11 +45,17 @@
 
 
 @keyframes entry {
-  to {transform: scale(0.9);}
+  to {
+    transform: scale(0.9);
+    opacity: 1;
+  }
 }
 
 @keyframes lineEntry {
-  to {transform: translate(50%, 0);}
+  to {
+    transform: translate(50%, 0);
+    opacity: 1;
+  }
 }
 
 
