@@ -40,11 +40,18 @@ const About = () => {
           className={multipleClasses(styles.beforeFadeIn, inView ? styles.fadeIn : undefined)}
         >
           <p>
-            Hi! My name is Gus and I enjoy creating things for the internet. I&apos;ve been interested in web development for a few years but
-            recently decided to try and turn my passion into a career.
+            Hi! My name is Gus and I&apos;m an <span style={{color}}>aspiring software developer</span>.&nbsp;
+            I&apos;m originally from Perth, Western Australia but currently based in Canada.
+            With a background in Maths and Physics, I&apos;m fascinated by the intricacies of how things 
+            work and enjoy using logic to solve problems
           </p>
           <p>
-            I&apos;m originally from Perth, Western Australia but currently based in Canada
+            I became interested in software development a few years ago after discovering a passion 
+            for building useful things from scratch.
+            I&apos;m now looking to apply my skills in creating tools to help users be more efficient
+          </p>
+          <p>
+            Besides coding at my desk, I can be found climbing rocks and photographing natural landscapes
           </p>
           <p>
             <br />Languages/technologies I&apos;ve used:

@@ -24,7 +24,7 @@ const Content = () => {
         >
           Gus Ryan.
         </h1>
-        <h2 className={styles.tagline}>Will write code for food</h2>
+        <h2 className={styles.tagline}>I enjoy creating things for the internet.</h2>
       </div>
 
       <About />
@@ -35,7 +35,7 @@ const Content = () => {
 
       <div className={styles.footer}>
         <Icons color={colorPalette[0]} />
-        Designed by Gus Ryan, thanks for checking it out!
+        Developed by Gus Ryan, thanks for checking it out!
       </div>
     </main>
   );
