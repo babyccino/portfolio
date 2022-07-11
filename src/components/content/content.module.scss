@@ -28,6 +28,10 @@
   font-weight: 500;
 }
 
+.tagline {
+  animation-delay: 0.4s;
+}
+
 .name {
   font-family: 'Heebo';
   font-weight: 700;
@@ -72,7 +76,7 @@
 @keyframes fadeIn {
   from {
     opacity: 0;
-    transform: translateY(10px);
+    transform: translateY(-10px);
   }
   to {
     opacity: 1;

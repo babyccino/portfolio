@@ -33,9 +33,6 @@ $grey: rgb(224, 224, 224);
   height: 100%;
 
   padding: 5px 25px 9px 25px;
-  transform: translateY(-70%);
-  opacity: 0;
-  animation: entry 1s ease-out 1.2s 1 normal both;
 }
 
 .logo {
@@ -45,6 +42,10 @@ $grey: rgb(224, 224, 224);
   font-size: 60px;
   line-height: 0.84em;
   transform: translateY(0.04em);
+
+  transform: translateY(-70%);
+  opacity: 0;
+  animation: logoEntry 0.5s ease-out 0s 1 normal both;
 
   background-size: 100%;
 
@@ -57,20 +58,24 @@ $grey: rgb(224, 224, 224);
 .sections {
   display: flex;
   align-items: center;
-
+  
   a {
-    width: clamp(5.4em, 7.5vw, 1000em);
     display: block;
+    width: clamp(5.4em, 7.5vw, 1000em);
     text-align: center;
     padding: 6px 0;
     margin: 0 -0.5px;
-
+    
     font-weight: 500;
-
+    
     transition: 0.1s ease-in-out;
 
     border-width: 0px;
     border-style: solid;
+    
+    transform: translateY(-70%);
+    opacity: 0;
+    animation: entry 0.5s ease-out 0s 1 normal both;
     
     &:hover, &:active {
       cursor: pointer;
@@ -89,6 +94,13 @@ $grey: rgb(224, 224, 224);
   to {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+@keyframes logoEntry {
+  to {
+    opacity: 1;
+    transform: translateY(0.04em);
   }
 }
 

@@ -43,7 +43,10 @@ const Header = () => {
       <div className={styles.contentContainer}>
         <a
           className={styles.logo}
-          style={{backgroundImage: linearGradient("135deg", colorPalette[0], colorPalette[1])}}
+          style={{
+            backgroundImage: linearGradient("135deg", colorPalette[0], colorPalette[1]),
+            animationDelay: "0.8s"
+          }}
           onClick={() => animateScroll.scrollToTop()}
         >G</a>
         <nav className={styles.sections}>
@@ -51,18 +54,27 @@ const Header = () => {
             to="about"
             smooth
             offset={-85}
-            style={{borderColor: color}}
+            style={{
+              borderColor: color,
+              animationDelay: "0.9s"
+            }}
             onClick={disableHeaderHide}
           >About</Link>
           <Link
             to="projects"
             smooth
             offset={-85}
-            style={{borderColor: color}}
+            style={{
+              borderColor: color,
+              animationDelay: "1.0s"
+            }}
             onClick={disableHeaderHide}
           >Projects</Link>
           <a
-            style={{borderColor: color}}
+            style={{
+              borderColor: color,
+              animationDelay: "1.1s"
+            }}
             onClick={() => {animateScroll.scrollToBottom(); disableHeaderHide();}}
           >Contact</a>
         </nav>

@@ -7,6 +7,10 @@
   margin: 0px auto;
   align-items: center;
   max-width: 900px;
+
+  p:first-child {
+    margin-top: 0;
+  }
 }
 
 .image {

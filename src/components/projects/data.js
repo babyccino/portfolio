@@ -60,7 +60,7 @@ const data = [
       The application can be set to either create gmail drafts for the donors, send the receipts out automatically \
       or save the files to disk',
     image: donationReceipt,
-    technologies: ["node.js"],
+    technologies: ["node.js", "GoogleAPI", "nodemailer", "pdfkit"],
     links: [
       <SocialIcon
         key={0}
