@@ -41,7 +41,17 @@ const Contact = () => {
           style={{animationDelay: "600ms"}}
           className={multipleClasses(styles.buttonContainer, styles.beforeFadeIn, inView ? styles.fadeIn : undefined)}
         >
-          <Button href='mailto:gus.ryan163@gmail.com' color={color}>Email me</Button>
+          <Button
+            href='mailto:gus.ryan163@gmail.com'
+            color={color}
+            style={{marginRight: "1em"}}
+          >Email me</Button>
+          <Button 
+            href='/Resume - Gus Ryan.pdf'
+            download
+            color={color}
+            style={{marginLeft: "1em"}}
+            >Resume</Button>
         </div>
       </div>
     </section>
