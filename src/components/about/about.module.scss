@@ -6,7 +6,7 @@
   flex-direction: row;
   margin: 0px auto;
   align-items: center;
-  max-width: 900px;
+  max-width: min(70vw, 1100px);
 
   p:first-child {
     margin-top: 0;
@@ -16,7 +16,7 @@
 .image {
   flex-shrink: 0;
   position: relative;
-  width: 300px;
+  width: min(25vw, 450px);
   border-radius: 10px;
 
   display: inline-flex;

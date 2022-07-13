@@ -51,7 +51,7 @@ const Contact = () => {
             download
             color={color}
             style={{marginLeft: "1em"}}
-            >Resume</Button>
+          >Resume</Button>
         </div>
       </div>
     </section>
