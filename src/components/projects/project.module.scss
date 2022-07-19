@@ -87,18 +87,22 @@ $blurRadius: 15px;
 
 
 
+@media (hover: none) {
+  .image {
+    filter: brightness(40%);
+  }
+
+  .contentInner {
+    opacity: 1 !important;
+  }
+}
+
 @media only screen and (max-width: 768px) {
   .image {
-    width: 200%;
+    width: 230%;
   }
 
   .contentInner {
     padding: 20px 30px !important;
-    
-    opacity: 1 !important;
-  }
-
-  .image {
-    filter: brightness(40%);
   }
 }

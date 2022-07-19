@@ -22,7 +22,8 @@ const About = () => {
     <section
       className={multipleClasses(styles.content, styles.about)}
       ref={inViewRef}
-      >
+      id="about"
+    >
       <div className={styles.contentInner}>
         <div
           className={multipleClasses(styles.contentTitleContainer, styles.beforeFadeIn, inView ? styles.fadeIn : undefined)}
@@ -31,7 +32,6 @@ const About = () => {
           <h3 
             style={{color: color}}
             className={styles.contentTitle}
-            id="about"
           >About me</h3>
           <hr style={{borderColor: color}} className={styles.line} />
         </div>

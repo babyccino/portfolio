@@ -19,14 +19,14 @@ const Header = () => {
   const disableHeaderHide = () => setClickLink(true);
   useEffect(() => {
     if (clickLink) {
-      const func = () => {setClickLink(false); console.log('hey')};
-      document.addEventListener("keydown", func);
-      document.addEventListener("wheel", func);
-      document.addEventListener("touchmove", func);
+      const listener = () => setClickLink(false);
+      document.addEventListener("keydown", listener);
+      document.addEventListener("wheel", listener);
+      document.addEventListener("touchmove", listener);
       return () => {
-        document.removeEventListener("keydown", func);
-        document.removeEventListener("wheel", func);
-        document.removeEventListener("touchmove", func);
+        document.removeEventListener("keydown", listener);
+        document.removeEventListener("wheel", listener);
+        document.removeEventListener("touchmove", listener);
       };
     }
   }, [clickLink]);
@@ -53,7 +53,7 @@ const Header = () => {
           <Link
             to="about"
             smooth
-            offset={-85}
+            offset={-50}
             style={{
               borderColor: color,
               animationDelay: "0.9s"
@@ -63,7 +63,7 @@ const Header = () => {
           <Link
             to="projects"
             smooth
-            offset={-85}
+            offset={-50}
             style={{
               borderColor: color,
               animationDelay: "1.0s"
