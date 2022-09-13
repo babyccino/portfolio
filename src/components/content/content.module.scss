@@ -1,93 +1,91 @@
 .main {
-  position: relative;
-  min-height: 100vh;
-  max-width: clamp(0px, 80vw, 1300px);
-  margin: auto;
+	position: relative;
+	min-height: 100vh;
+	max-width: clamp(0px, 80vw, 81.25rem);
+	margin: auto;
 }
 
 .introduction {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  height: 100vh;
-  
-  color: rgb(182, 182, 182);
-  font-family: 'Heebo';
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	height: 100vh;
 
-  opacity: 0;
-  animation: fadeIn 1s ease-in-out 0s 1 normal forwards;
+	color: rgb(182, 182, 182);
+	font-family: "Heebo";
+
+	opacity: 0;
+	animation: fadeIn 1s ease-in-out 0s 1 normal forwards;
 }
 
-.hi, .tagline {
-  margin: 0;
+.hi,
+.tagline {
+	margin: 0;
 
-  opacity: 0;
-  animation: fadeIn 0.5s ease-in-out 0s 1 normal forwards;
+	opacity: 0;
+	animation: fadeIn 0.5s ease-in-out 0s 1 normal forwards;
 
-  font-size: clamp(15px, 1.8vmax, 30px);
-  font-weight: 500;
+	font-size: clamp(1rem, 1.8vmax, 1.875rem);
+	font-weight: 500;
 }
 
 .tagline {
-  animation-delay: 0.4s;
+	animation-delay: 0.4s;
 }
 
 .name {
-  font-family: 'Heebo';
-  font-weight: 700;
-  font-size: clamp(60px, 8vmax, 120px);
-  margin: 0;
+	font-family: "Heebo";
+	font-weight: 700;
+	font-size: clamp(3.75rem, 8vmax, 7.5rem);
+	margin: 0;
 
-  background-color: rgb(231, 231, 231);
-  
-  background-size: 1000%;
-  background-repeat: repeat;
+	background-color: rgb(231, 231, 231);
 
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent; 
-  -moz-background-clip: text;
-  -moz-text-fill-color: transparent;
+	background-size: 1000%;
+	background-repeat: repeat;
 
-  opacity: 0;
-  animation: movingGradient 20s ease-in-out -5s infinite alternate, fadeIn 0.5s ease-in-out 0.2s 1 normal forwards;
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	-moz-background-clip: text;
+	-moz-text-fill-color: transparent;
+
+	opacity: 0;
+	animation: movingGradient 20s ease-in-out -5s infinite alternate,
+		fadeIn 0.5s ease-in-out 0.2s 1 normal forwards;
 }
 
 .footer {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  text-align: center;
-  font-size: clamp(12px, 1.4vmax, 16px);
-  color: rgb(136, 136, 136);
-  padding-bottom: 2em;
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	text-align: center;
+	font-size: clamp(0.75rem, 1.4vmax, 1rem);
+	color: rgb(136, 136, 136);
+	padding-bottom: 2em;
 }
 
-
-
 @keyframes movingGradient {
-  from {
-    background-position: 0 0;
-  }
-  to {
-    background-position: 80em 0;
-  }
+	from {
+		background-position: 0 0;
+	}
+	to {
+		background-position: 80em 0;
+	}
 }
 
 @keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(-10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+	from {
+		opacity: 0;
+		transform: translateY(-10px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
 }
 
-
-
 @media only screen and (max-width: 768px) {
-  .main {
-    max-width: 85vw;
-  }
+	.main {
+		max-width: 85vw;
+	}
 }

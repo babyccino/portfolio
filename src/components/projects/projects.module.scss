@@ -1,16 +1,16 @@
-@import './../../styles/content.scss';
+@import "./../../styles/content.scss";
 
 .projects {
-  display: flex;
-  flex-direction: column;
-  max-width: 1200px;
-  margin-bottom: 0;
+	display: flex;
+	flex-direction: column;
+	max-width: 75rem; // 1200px
+	margin-bottom: 0;
 
-  .line {
-    max-width: 300px;
-  }
+	.line {
+		max-width: 18.75rem; // 300px
+	}
 }
 
 .project:nth-child(odd) {
-  align-self: flex-end;
+	align-self: flex-end;
 }
