@@ -1,35 +1,43 @@
 {
-  "name": "portfolio",
-  "version": "0.1.0",
-  "private": true,
-  "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint",
-    "generate": "node generate.js"
-  },
-  "dependencies": {
-    "@babel/helper-module-imports": "^7.16.7",
-    "@fortawesome/fontawesome-svg-core": "^6.1.1",
-    "@fortawesome/free-regular-svg-icons": "^6.1.1",
-    "@fortawesome/free-solid-svg-icons": "^6.1.1",
-    "@fortawesome/react-fontawesome": "^0.1.18",
-    "@reduxjs/toolkit": "^1.8.2",
-    "command-line-args": "^5.2.1",
-    "next": "12.1.6",
-    "react": "18.1.0",
-    "react-dom": "18.1.0",
-    "react-icons": "^4.4.0",
-    "react-intersection-observer": "^9.3.3",
-    "react-redux": "^8.0.2",
-    "react-scroll": "^1.8.7",
-    "react-social-icons": "^5.13.0",
-    "react-swipeable": "^7.0.0",
-    "sass": "^1.53.0"
-  },
-  "devDependencies": {
-    "eslint": "8.16.0",
-    "eslint-config-next": "12.1.6"
-  }
+	"name": "portfolio",
+	"version": "0.1.0",
+	"private": true,
+	"scripts": {
+		"dev": "next dev",
+		"build": "next build",
+		"start": "next start",
+		"lint": "next lint",
+		"generate": "node generate.js",
+		"redeploy": "next build && next start"
+	},
+	"dependencies": {
+		"@babel/helper-module-imports": "^7.16.7",
+		"@fortawesome/fontawesome-svg-core": "^6.1.1",
+		"@fortawesome/free-regular-svg-icons": "^6.1.1",
+		"@fortawesome/free-solid-svg-icons": "^6.1.1",
+		"@fortawesome/react-fontawesome": "^0.1.18",
+		"@reduxjs/toolkit": "^1.8.2",
+		"@types/jest": "^29.0.1",
+		"@types/node": "^18.7.16",
+		"@types/react": "^18.0.19",
+		"@types/react-dom": "^18.0.6",
+		"@types/react-scroll": "^1.8.4",
+		"command-line-args": "^5.2.1",
+		"next": "^12.3.0",
+		"next-redux-wrapper": "^8.0.0",
+		"react": "^18.2.0",
+		"react-dom": "^18.2.0",
+		"react-icons": "^4.4.0",
+		"react-intersection-observer": "^9.3.3",
+		"react-redux": "^8.0.2",
+		"react-scroll": "^1.8.7",
+		"react-social-icons": "^5.13.0",
+		"react-swipeable": "^7.0.0",
+		"sass": "^1.53.0",
+		"typescript": "^4.8.3"
+	},
+	"devDependencies": {
+		"eslint": "8.16.0",
+		"eslint-config-next": "12.1.6"
+	}
 }

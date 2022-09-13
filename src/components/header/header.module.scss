@@ -1,119 +1,117 @@
 $grey: rgb(224, 224, 224);
 
 .mainContainer {
-  z-index: 5;
-  position: fixed;
-  top: 0;
-  width: 100vw;
-  display: flex;
-  justify-content: center;
-  padding: 0 0;
-  
-  transition: transform 0.7s, box-shadow 0.7s, padding 0.7s;
-  background-color: rgba(25, 25, 29, 0.85);
-  backdrop-filter: blur(10px);
-  box-shadow: 0 0 30px -10px rgb(15, 15, 15);
+	z-index: 5;
+	position: fixed;
+	top: 0;
+	width: 100vw;
+	display: flex;
+	justify-content: center;
+	padding: 0 0;
+
+	transition: transform 0.7s, box-shadow 0.7s, padding 0.7s;
+	background-color: rgba(25, 25, 29, 0.85);
+	backdrop-filter: blur(10px);
+	box-shadow: 0 0 30px -10px rgb(15, 15, 15);
 }
 
 .scrollUp {
-  transform: translateY(-100%);
-  box-shadow: none;
+	transform: translateY(-100%);
+	box-shadow: none;
 }
 
 .topOfPage {
-  box-shadow: none;
+	box-shadow: none;
 }
 
 .contentContainer {
-  flex: 1;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  
-  height: 100%;
+	flex: 1;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
 
-  padding: 5px 25px 9px 25px;
+	height: 100%;
+
+	padding: 5px 25px 9px 25px;
 }
 
 .logo {
-  text-align: center;
-  font-family: 'Heebo';
-  font-weight: 700;
-  font-size: 60px;
-  line-height: 0.84em;
-  transform: translateY(0.04em);
+	text-align: center;
+	font-family: "Heebo";
+	font-weight: 700;
+	font-size: 60px;
+	line-height: 0.84em;
+	transform: translateY(0.04em);
 
-  transform: translateY(-70%);
-  opacity: 0;
-  animation: logoEntry 0.5s ease-out 0s 1 normal both;
+	transform: translateY(-70%);
+	opacity: 0;
+	animation: logoEntry 0.5s ease-out 0s 1 normal both;
 
-  background-size: 100%;
+	background-size: 100%;
 
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent; 
-  -moz-background-clip: text;
-  -moz-text-fill-color: transparent;
+	background-clip: text;
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	-moz-background-clip: text;
+	-moz-text-fill-color: transparent;
 }
 
 .sections {
-  display: flex;
-  align-items: center;
-  
-  a {
-    display: block;
-    width: clamp(5.4em, 7.5vw, 1000em);
-    text-align: center;
-    padding: 6px 0;
-    margin: 0 -0.5px;
-    
-    font-weight: 500;
-    
-    transition: 0.1s ease-in-out;
+	display: flex;
+	align-items: center;
 
-    border-width: 0px;
-    border-style: solid;
-    
-    transform: translateY(-70%);
-    opacity: 0;
-    animation: entry 0.5s ease-out 0s 1 normal both;
-    
-    &:hover, &:active {
-      cursor: pointer;
-      border-width: 0px 1px;
-    }
-  }
+	a {
+		display: block;
+		width: clamp(5.4em, 7.5vw, 1000em);
+		text-align: center;
+		padding: 6px 0;
+		margin: 0 -0.5px;
+
+		font-weight: 500;
+
+		transition: 0.1s ease-in-out;
+
+		border-width: 0px;
+		border-style: solid;
+
+		transform: translateY(-70%);
+		opacity: 0;
+		animation: entry 0.5s ease-out 0s 1 normal both;
+
+		&:hover,
+		&:active {
+			cursor: pointer;
+			border-width: 0px 1px;
+		}
+	}
 }
 
 .icons {
-  padding: 0;
+	padding: 0;
 }
 
-
-
 @keyframes entry {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
 }
 
 @keyframes logoEntry {
-  to {
-    opacity: 1;
-    transform: translateY(0.04em);
-  }
+	to {
+		opacity: 1;
+		transform: translateY(0.04em);
+	}
 }
 
-
-
 $hPadding: 3vw;
-@media only screen and (min-width: 768px) and (orientation:landscape) {
-  .topOfPage {
-    padding: 20px 0;
-  } 
+@media only screen and (min-width: 768px) and (orientation: landscape) {
+	.topOfPage {
+		padding: 20px 0;
+	}
 
-  .contentContainer {
-    padding-left: $hPadding;
-    padding-right: $hPadding;
-  }
+	.contentContainer {
+		padding-left: $hPadding;
+		padding-right: $hPadding;
+	}
 }
