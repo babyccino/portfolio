@@ -1,15 +1,14 @@
-import React from "react"
-import { useSelector } from "react-redux"
-
-import useCustomDispatch from "../../hooks/customDispatch"
-
 import styles from "./intro.module.scss"
 
-import { IntroStatus as IntroStatusEnum, State } from "../../state/types"
+import React, { useEffect } from "react"
+import { useRouter } from "next/router"
+import { useSelector } from "react-redux"
 
-import Bars from "../bars/bars"
-import Button from "../button/button"
+import Bars from "../bars"
+import Button from "../button"
+import useCustomDispatch from "../../hooks/customDispatch"
 import { useColorPalette } from "../../hooks/colorPalette"
+import { IntroStatus as IntroStatusEnum, State } from "../../state/types"
 
 const Right = () => (
 	<span className={styles.rightContainer}>
@@ -20,13 +19,25 @@ const Right = () => (
 )
 
 const Intro = () => {
-	const { requestUnmount } = useCustomDispatch()
-	const willDisappear = useSelector(
-		({ introStatus }: State): boolean =>
-			introStatus >= IntroStatusEnum.willDisappear
+	const router = useRouter()
+	const introStatus = useSelector(
+		({ introStatus }: State): IntroStatusEnum => introStatus
 	)
-	const colorPalette = useColorPalette()
+	if (introStatus === IntroStatusEnum.notVisible) router.push("/portfolio")
 
+	const dispatch = useCustomDispatch()
+
+	useEffect(() => {
+		const onKeyDown = ({ code }: KeyboardEvent) => {
+			if (code === "Enter") dispatch.requestUnmount()
+		}
+
+		document.addEventListener("keydown", onKeyDown)
+		return document.removeEventListener("keydown", onKeyDown)
+	}, [])
+
+	const willDisappear = introStatus >= IntroStatusEnum.willDisappear
+	const colorPalette = useColorPalette()
 	const mainColor = colorPalette[0]
 	const secondaryColor = colorPalette[1]
 
@@ -54,7 +65,7 @@ const Intro = () => {
 					&nbsp;to change it
 				</h2>
 				<div className={styles.button}>
-					<Button color={secondaryColor} onClick={requestUnmount}>
+					<Button color={secondaryColor} onClick={dispatch.requestUnmount}>
 						Come and learn about me!
 					</Button>
 				</div>

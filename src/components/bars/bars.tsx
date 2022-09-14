@@ -51,12 +51,12 @@ const Bars = (): JSX.Element => {
 	})
 
 	const firstAngle = -21
-	const firstBarDuration = 1 * 1000
+	const firstBarDuration = 800
 	const animationTime =
 		firstBarDuration * ((2 * -firstAngle) / (firstAngle + 90) + 1)
 
 	if (introStatus === IntroStatusEnum.willDisappear)
-		setTimeout(() => dispatch.notVisible(), animationTime)
+		setTimeout(() => dispatch.notVisible(), animationTime - 100)
 
 	useEffect(() => {
 		const i = colorPalettes.length - 1
@@ -107,32 +107,52 @@ const Bars = (): JSX.Element => {
 	})
 
 	const len = colorPalettes.length
+	const barsWillDisappear = introStatus >= IntroStatusEnum.willDisappear
+
 	return (
 		<div className={styles.container} {...handlers}>
-			{colorPalettes[len - 1].map((color, ii) => (
-				<div
-					key={"" + len + " " + ii}
-					className={multipleClasses(
-						styles[
-							introStatus < IntroStatusEnum.willDisappear
-								? `swipeIn${ii}`
-								: `swipeOut${ii}`
-						],
-						styles.bar
-					)}
-					style={{ backgroundColor: color }}
+			<BarsInner
+				colorPalette={colorPalettes[len - 1]}
+				id={len - 1}
+				willDisappear={barsWillDisappear}
+			/>
+			{len > 1 ? (
+				<BarsInner
+					colorPalette={colorPalettes[len - 2]}
+					id={len - 2}
+					willDisappear={true}
 				/>
-			))}
-			{len <= 1
-				? null
-				: colorPalettes[len - 2].map((color, ii) => (
-						<div
-							key={"" + len + " " + ii}
-							className={multipleClasses(styles[`swipeOut${ii}`], styles.bar)}
-							style={{ backgroundColor: color }}
-						/>
-				  ))}
+			) : null}
 		</div>
+	)
+}
+
+// the collection index is the index of the color palette with the list of color palletes
+// the individual index is
+function BarsInner({
+	id,
+	willDisappear,
+	colorPalette,
+}: {
+	id: number
+	willDisappear: boolean
+	colorPalette: string[]
+}): JSX.Element {
+	return (
+		<>
+			{colorPalette.map(
+				(color: string, idx: number): JSX.Element => (
+					<div
+						key={"" + id + "-" + idx}
+						className={multipleClasses(
+							styles[willDisappear ? `swipeOut${idx}` : `swipeIn${idx}`],
+							styles.bar
+						)}
+						style={{ backgroundColor: color }}
+					/>
+				)
+			)}
+		</>
 	)
 }
 

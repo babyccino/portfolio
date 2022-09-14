@@ -12,7 +12,7 @@ const NAV_HEIGHT = 50
 
 const Header = (): JSX.Element => {
 	const scrollUp = useIsScrollingUp(true)
-	const topOfPage = useIsTopOfPage(true)
+	const isTopOfPage = useIsTopOfPage(true)
 	const [clickLink, setClickLink] = useState(false)
 	const colorPalette = useColorPalette()
 
@@ -37,7 +37,7 @@ const Header = (): JSX.Element => {
 		<div
 			style={{ color: mainColor }}
 			className={multipleClasses(
-				topOfPage ? styles.topOfPage : "",
+				isTopOfPage ? styles.topOfPage : "",
 				scrollUp || clickLink ? "" : styles.scrollUp,
 				styles.mainContainer
 			)}
