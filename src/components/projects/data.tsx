@@ -60,9 +60,9 @@ const projectsData: ProjectData[] = [
 	{
 		title: "Countdown Timer",
 		description:
-			"A simple full stack application I created to test my back-end skills and teach myself typescript. \
-			The application leverages NextJS to statically generate all pages of the app to maintain performance without \
-			database caching.",
+			"A simple full stack application to create countdown timers which I created to test my back-end skills \
+			and teach myself typescript. The application leverages NextJS to statically generate all pages of the app \
+			to maintain performance without database caching.",
 		image: countDownTimer,
 		technologies: [
 			"TypeScript",
