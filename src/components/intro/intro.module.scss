@@ -105,11 +105,11 @@ $upAnimationInitialDelay: 11s;
 }
 
 .willDisappear {
-	transition: background-color 0.7s ease-in 0.3s;
+	transition: background-color 0.5s ease-in 0.3s;
 	background-color: transparent;
 
 	.welcomeContainer {
-		transition: transform 0.7s ease-in;
+		transition: transform 0.5s ease-in;
 		transform: translateX(-150%);
 	}
 }
