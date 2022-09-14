@@ -3,6 +3,7 @@ import { SocialIcon } from "react-social-icons"
 import { FaExternalLinkAlt } from "react-icons/fa"
 
 import portfolioImage from "../../../public/portfolio.jpg"
+import countDownTimer from "../../../public/countdown-timer.jpg"
 import letterBoxr from "../../../public/letterBoxr.jpg"
 import donationReceipt from "../../../public/donation-receipt.jpg"
 
@@ -12,6 +13,34 @@ export interface ProjectData {
 	image: StaticImageData
 	technologies: string[]
 	links: JSX.Element[]
+}
+
+function GithubIcon({ repoName }: { repoName: string }): JSX.Element {
+	return (
+		<SocialIcon
+			key={repoName}
+			bgColor="rgba(0,0,0,0)"
+			fgColor="rgb(230, 230, 230)"
+			url={`https://github.com/${repoName}`}
+		/>
+	)
+}
+function VercelIcon({ projectName }: { projectName: string }): JSX.Element {
+	return (
+		<a
+			key={projectName}
+			href={`https://${projectName}.vercel.app/`}
+			style={{
+				display: "flex",
+				alignItems: "center",
+				transform: "scale(1.5)",
+				height: "50px",
+				color: "rgb(230, 230, 230)",
+			}}
+		>
+			<FaExternalLinkAlt />
+		</a>
+	)
 }
 
 const projectsData: ProjectData[] = [
@@ -24,25 +53,29 @@ const projectsData: ProjectData[] = [
 		image: portfolioImage,
 		technologies: ["react.js", "next.js", "sass", "redux", "figma"],
 		links: [
-			<SocialIcon
-				key={0}
-				bgColor="rgba(0,0,0,0)"
-				fgColor="rgb(230, 230, 230)"
-				url={"https://github.com/babyccino/portfolio"}
-			/>,
-			<a
-				key={1}
-				href="https://portfolio-babyccino.vercel.app/"
-				style={{
-					display: "flex",
-					alignItems: "center",
-					transform: "scale(1.5)",
-					height: "50px",
-					color: "rgb(230, 230, 230)",
-				}}
-			>
-				<FaExternalLinkAlt />
-			</a>,
+			<GithubIcon repoName="babyccino/portfolio" />,
+			<VercelIcon projectName="babyccino-portfolio" />,
+		],
+	},
+	{
+		title: "Countdown Timer",
+		description:
+			"A simple full stack application I created to test my back-end skills and teach myself typescript. \
+			The application leverages NextJS to statically generate all pages of the app to maintain performance without \
+			database caching.",
+		image: countDownTimer,
+		technologies: [
+			"TypeScript",
+			"react.js",
+			"next.js",
+			"TailwindCSS",
+			"figma",
+			"SQL",
+			"PrismaORM",
+		],
+		links: [
+			<GithubIcon repoName={"babyccino/countdown-timer"} />,
+			<VercelIcon projectName="countdown-timer-babyccino" />,
 		],
 	},
 	{
@@ -54,25 +87,8 @@ const projectsData: ProjectData[] = [
 		image: letterBoxr,
 		technologies: ["react.js", "sass", "redux", "figma"],
 		links: [
-			<SocialIcon
-				key={0}
-				bgColor="rgba(0,0,0,0)"
-				fgColor="rgb(230, 230, 230)"
-				url={"https://github.com/babyccino/Letterboxr"}
-			/>,
-			<a
-				key={1}
-				href="https://letterboxr.vercel.app/"
-				style={{
-					display: "flex",
-					alignItems: "center",
-					transform: "scale(1.5)",
-					height: "50px",
-					color: "rgb(230, 230, 230)",
-				}}
-			>
-				<FaExternalLinkAlt />
-			</a>,
+			<GithubIcon repoName={"babyccino/Letterboxr"} />,
+			<VercelIcon projectName="letterboxr" />,
 		],
 	},
 	{
@@ -83,14 +99,7 @@ const projectsData: ProjectData[] = [
       The application takes CSV data in the form and generates simple PDF donation receipts",
 		image: donationReceipt,
 		technologies: ["node.js", "GoogleAPI", "nodemailer", "pdfkit"],
-		links: [
-			<SocialIcon
-				key={0}
-				bgColor="rgba(0,0,0,0)"
-				fgColor="rgb(230, 230, 230)"
-				url={"https://github.com/babyccino/donation-receipts"}
-			/>,
-		],
+		links: [<GithubIcon repoName={"babyccino/donation-receipts"} />],
 	},
 ]
 
