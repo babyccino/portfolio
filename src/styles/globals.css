@@ -45,3 +45,10 @@ a:hover {
 ::-webkit-scrollbar-thumb:hover {
 	background: #555;
 }
+
+@media (prefers-reduced-motion) {
+	* {
+		transition: none !important;
+		animation: none !important;
+	}
+}

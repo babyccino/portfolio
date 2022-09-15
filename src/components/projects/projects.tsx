@@ -45,7 +45,7 @@ export default function Projects(): JSX.Element {
 			</div>
 			{projectsData.map(
 				(datum, i): JSX.Element => (
-					<div key={i} className={styles.project}>
+					<div key={datum.title} className={styles.project}>
 						<Project color={colorPalette[(i + 3) % 5]} {...datum} />
 					</div>
 				)

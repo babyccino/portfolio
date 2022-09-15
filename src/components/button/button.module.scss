@@ -1,24 +1,28 @@
 .button {
-  display: inline-block;
+	display: inline-block;
 
-  padding: 10px 20px;
-  border-radius: 5px;
-  border-style: solid;
-  border-width: 1px;
+	padding: 10px 20px;
+	border-radius: 5px;
+	border-style: solid;
+	border-width: 1px;
 
-  background-size: 205%;
-  background-repeat: no-repeat;
-  background-position: 100% 0;
-  background-blend-mode: overlay;
+	background-size: 205%;
+	background-repeat: no-repeat;
+	background-position: 100% 0;
+	background-blend-mode: overlay;
+}
 
-  transition: background-position 0.3s, color 0.3s, transform 0.1s;
+@media (prefers-reduced-motion: no-preference) {
+	.button {
+		transition: background-position 0.3s, color 0.3s, transform 0.1s;
 
-  &:hover {
-    background-position: 0 0;
-    color: rgb(25,25,30) !important;
-  }
+		&:hover {
+			background-position: 0 0;
+			color: rgb(25, 25, 30) !important;
+		}
 
-  &:active {
-    transform: translateY(4px);
-  }
+		&:active {
+			transform: translateY(2px);
+		}
+	}
 }

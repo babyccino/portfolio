@@ -24,11 +24,11 @@ const Project = ({
 
 	return (
 		<article
-			style={{
-				transform: inView ? "translateY(0)" : "translateY(100px)",
-				opacity: inView ? 1 : 0,
-			}}
-			className={multipleClasses(styles.content, styles.project)}
+			className={multipleClasses(
+				styles.content,
+				styles.project,
+				inView ? styles.inView : styles.notInView
+			)}
 			ref={inViewRef}
 		>
 			<div className={styles.contentInner}>

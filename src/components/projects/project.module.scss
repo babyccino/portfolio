@@ -2,6 +2,15 @@
 
 $blurRadius: 15px;
 
+.notInView {
+	transform: translateY(100px);
+	opacity: 0;
+}
+.inView {
+	transform: translateY(0);
+	opacity: 1;
+}
+
 .project {
 	position: relative;
 	transition: transform 1s, opacity 1s;
@@ -85,13 +94,20 @@ $blurRadius: 15px;
 	transition: filter 0.5s;
 }
 
-@media (hover: none) {
+@media (hover: none) or (prefers-reduced-motion) {
 	.image {
 		filter: brightness(40%);
 	}
 
 	.contentInner {
 		opacity: 1 !important;
+	}
+}
+
+@media (prefers-reduced-motion) {
+	.notInView {
+		transform: translateY(0);
+		opacity: 1;
 	}
 }
 

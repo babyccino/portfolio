@@ -15,7 +15,7 @@ $grey: rgb(224, 224, 224);
 	box-shadow: 0 0 30px -10px rgb(15, 15, 15);
 }
 
-.scrollUp {
+.scrollDown {
 	transform: translateY(-100%);
 	box-shadow: none;
 }
@@ -43,7 +43,6 @@ $grey: rgb(224, 224, 224);
 	line-height: 0.84em;
 	transform: translateY(0.04em);
 
-	transform: translateY(-70%);
 	opacity: 0;
 	animation: logoEntry 0.5s ease-out 0s 1 normal both;
 
@@ -74,7 +73,6 @@ $grey: rgb(224, 224, 224);
 		border-width: 0px;
 		border-style: solid;
 
-		transform: translateY(-70%);
 		opacity: 0;
 		animation: entry 0.5s ease-out 0s 1 normal both;
 
@@ -91,16 +89,24 @@ $grey: rgb(224, 224, 224);
 }
 
 @keyframes entry {
+	from {
+		opacity: 0;
+		transform: translateY(-70%);
+	}
 	to {
 		opacity: 1;
-		transform: translateY(0);
+		transform: initial;
 	}
 }
 
 @keyframes logoEntry {
+	from {
+		opacity: 0;
+		transform: translateY(-70%);
+	}
 	to {
 		opacity: 1;
-		transform: translateY(0.04em);
+		transform: initial;
 	}
 }
 
@@ -113,5 +119,19 @@ $hPadding: 3vw;
 	.contentContainer {
 		padding-left: $hPadding;
 		padding-right: $hPadding;
+	}
+}
+
+@media (prefers-reduced-motion) {
+	.logo,
+	.sections a {
+		opacity: 1;
+		animation: none;
+	}
+	.scrollDown,
+	.topOfPage {
+		transform: none;
+		padding: inherit;
+		box-shadow: 0 0 30px -10px rgb(15, 15, 15);
 	}
 }

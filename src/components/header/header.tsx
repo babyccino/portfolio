@@ -38,7 +38,7 @@ const Header = (): JSX.Element => {
 			style={{ color: mainColor }}
 			className={multipleClasses(
 				isTopOfPage ? styles.topOfPage : "",
-				scrollUp || clickLink ? "" : styles.scrollUp,
+				scrollUp || clickLink ? "" : styles.scrollDown,
 				styles.mainContainer
 			)}
 		>

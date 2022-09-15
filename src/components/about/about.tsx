@@ -30,8 +30,7 @@ const About = (): JSX.Element => {
 				<div
 					className={multipleClasses(
 						styles.contentTitleContainer,
-						styles.beforeFadeIn,
-						inView ? styles.fadeIn : ""
+						inView ? styles.fadeIn : styles.beforeFadeIn
 					)}
 					style={{ animationDelay: "200ms" }}
 				>

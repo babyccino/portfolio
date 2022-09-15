@@ -89,3 +89,13 @@
 		max-width: 85vw;
 	}
 }
+
+@media (prefers-reduced-motion) {
+	.hi,
+	.introduction,
+	.tagline,
+	.name {
+		opacity: 1;
+		animation: none;
+	}
+}
