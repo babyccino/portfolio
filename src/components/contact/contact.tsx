@@ -1,13 +1,13 @@
-import React from "react"
+import styles from "./contact.module.scss"
+
 import { useInView } from "react-intersection-observer"
 
 import { multipleClasses } from "../../util"
 
-import styles from "./contact.module.scss"
-import Button from "../button/button"
 import { useColor } from "../../hooks/colorPalette"
+import Button from "../button/button"
 
-const Contact = (): JSX.Element => {
+export default function Contact(): JSX.Element {
 	const options = {
 		triggerOnce: true,
 		rootMargin: "0px 0px",
@@ -70,5 +70,3 @@ const Contact = (): JSX.Element => {
 		</section>
 	)
 }
-
-export default Contact

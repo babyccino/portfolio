@@ -1,18 +1,14 @@
-import React from "react"
-import Image from "next/image"
-import { useInView } from "react-intersection-observer"
-
-import { useSelector } from "react-redux"
-
 import styles from "./about.module.scss"
 
-import { multipleClasses } from "../../util"
-import type { State } from "../../state/types"
+import Image from "next/image"
+
+import { useInView } from "react-intersection-observer"
 
 import profile from "../../../public/profile.jpg"
 import { useColor } from "../../hooks/colorPalette"
+import { multipleClasses } from "../../util"
 
-const About = (): JSX.Element => {
+export default function About(): JSX.Element {
 	const options = {
 		triggerOnce: true,
 		rootMargin: "-200px 0px",
@@ -94,5 +90,3 @@ const About = (): JSX.Element => {
 		</section>
 	)
 }
-
-export default About

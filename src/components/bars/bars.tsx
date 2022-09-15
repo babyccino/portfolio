@@ -1,13 +1,13 @@
-import React, { useEffect, useRef } from "react"
+import styles from "./bars.module.scss"
+
+import { memo, useEffect, useRef } from "react"
 import { useSelector } from "react-redux"
 import useCustomDispatch from "../../hooks/customDispatch"
 
 import { useSwipeable } from "react-swipeable"
 
-import styles from "./bars.module.scss"
-
+import { IntroStatus as IntroStatusEnum, State } from "../../state/types"
 import { multipleClasses } from "../../util"
-import { State, IntroStatus as IntroStatusEnum } from "../../state/types"
 
 interface CurrentlyAnimatingRefType {
 	currentlyAnimating: boolean
@@ -156,4 +156,4 @@ function BarsInner({
 	)
 }
 
-export default React.memo(Bars)
+export default memo(Bars)

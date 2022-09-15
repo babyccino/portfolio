@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import { useState } from "react"
 import { SocialIcon } from "react-social-icons"
 
 import styles from "./icons.module.scss"

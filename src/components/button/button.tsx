@@ -1,10 +1,10 @@
-import React, { MouseEventHandler } from "react"
-
 import styles from "./button.module.scss"
+
+import { MouseEventHandler } from "react"
 
 import { linearGradient } from "../../util"
 
-const Button = ({
+export default function Button({
 	color,
 	href,
 	style,
@@ -18,27 +18,27 @@ const Button = ({
 	style?: Record<string, string>
 	download?: boolean
 	onClick?: MouseEventHandler<HTMLAnchorElement>
-}): JSX.Element => (
-	<a
-		className={styles.button}
-		href={href}
-		role="button"
-		style={{
-			borderColor: color,
-			color,
-			backgroundImage: linearGradient(
-				"90deg",
+}): JSX.Element {
+	return (
+		<a
+			className={styles.button}
+			href={href}
+			role="button"
+			style={{
+				borderColor: color,
 				color,
-				color + " 49%",
-				"transparent 50%"
-			),
-			...style,
-		}}
-		download
-		onClick={onClick}
-	>
-		{children}
-	</a>
-)
-
-export default Button
+				backgroundImage: linearGradient(
+					"90deg",
+					color,
+					color + " 49%",
+					"transparent 50%"
+				),
+				...style,
+			}}
+			download
+			onClick={onClick}
+		>
+			{children}
+		</a>
+	)
+}

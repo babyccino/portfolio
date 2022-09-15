@@ -1,14 +1,14 @@
 import styles from "./intro.module.scss"
 
-import React, { useEffect } from "react"
 import { useRouter } from "next/router"
+import { useEffect } from "react"
 import { useSelector } from "react-redux"
 
+import { useColorPalette } from "../../hooks/colorPalette"
+import useCustomDispatch from "../../hooks/customDispatch"
+import { IntroStatus as IntroStatusEnum, State } from "../../state/types"
 import Bars from "../bars"
 import Button from "../button"
-import useCustomDispatch from "../../hooks/customDispatch"
-import { useColorPalette } from "../../hooks/colorPalette"
-import { IntroStatus as IntroStatusEnum, State } from "../../state/types"
 
 const Right = () => (
 	<span className={styles.rightContainer}>
@@ -18,7 +18,7 @@ const Right = () => (
 	</span>
 )
 
-const Intro = () => {
+export default function Intro() {
 	const router = useRouter()
 	const introStatus = useSelector(
 		({ introStatus }: State): IntroStatusEnum => introStatus
@@ -76,5 +76,3 @@ const Intro = () => {
 		</div>
 	)
 }
-
-export default Intro

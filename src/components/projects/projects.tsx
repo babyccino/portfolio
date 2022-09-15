@@ -1,13 +1,11 @@
 import styles from "./projects.module.scss"
 
-import React from "react"
-
 import { useInView } from "react-intersection-observer"
 
-import Project from "./project"
-import { multipleClasses } from "../../util"
 import { useColorPalette } from "../../hooks/colorPalette"
+import { multipleClasses } from "../../util"
 import projectsData from "./data"
+import Project from "./project"
 
 export default function Projects(): JSX.Element {
 	const options = {

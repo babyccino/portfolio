@@ -1,6 +1,8 @@
 import { mkdir, NoParamCallback, writeFile as fsWriteFile } from "fs"
-const commandLineArgs = require("command-line-args")
-const getDirName = require("path").dirname
+
+import commandLineArgs from "command-line-args"
+import { dirname as getDirName } from "path"
+
 const optionDefinitions = [
 	{ name: "component", alias: "c", type: String, multiple: true },
 ]
@@ -24,9 +26,7 @@ for (const component of components) {
 		export default ${capitalised}
 		`
 
-	const componentFile = `import React from 'react'
-
-		import styles from './${lowerCase}.module.scss'
+	const componentFile = `import styles from './${lowerCase}.module.scss'
 
 		const ${capitalised} = (): JSX.Element => {
 

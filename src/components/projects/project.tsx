@@ -1,6 +1,5 @@
 import styles from "./project.module.scss"
 
-import React from "react"
 import Image from "next/image"
 
 import { useInView } from "react-intersection-observer"
@@ -8,14 +7,14 @@ import { useInView } from "react-intersection-observer"
 import { multipleClasses } from "../../util"
 import { ProjectData } from "./data"
 
-const Project = ({
+export default function Project({
 	color,
 	title,
 	description,
 	image,
 	technologies,
 	links,
-}: ProjectData & { color: string }): JSX.Element => {
+}: ProjectData & { color: string }): JSX.Element {
 	const options = {
 		triggerOnce: true,
 		rootMargin: "-200px 0px",
@@ -52,5 +51,3 @@ const Project = ({
 		</article>
 	)
 }
-
-export default Project

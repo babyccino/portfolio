@@ -1,13 +1,11 @@
-import React from "react"
-
 import styles from "./content.module.scss"
 
-import About from "../about/about"
-import Projects from "../projects/projects"
+import About from "../about"
+import Projects from "../projects"
 import Icons from "../icons"
 
 import { linearGradient } from "../../util"
-import Contact from "../contact/contact"
+import Contact from "../contact"
 import { useColorPalette } from "../../hooks/colorPalette"
 
 const Content = (): JSX.Element => {

@@ -1,12 +1,12 @@
-import React, { useEffect, useState } from "react"
-import { Link, animateScroll } from "react-scroll"
+import styles from "./header.module.scss"
 
+import { useEffect, useState } from "react"
+import { animateScroll, Link } from "react-scroll"
+
+import { useColorPalette } from "../../hooks/colorPalette"
 import useIsScrollingUp from "../../hooks/scrollUp"
 import useIsTopOfPage from "../../hooks/topOfPage"
-import { multipleClasses, linearGradient } from "../../util"
-
-import styles from "./header.module.scss"
-import { useColorPalette } from "../../hooks/colorPalette"
+import { linearGradient, multipleClasses } from "../../util"
 
 const NAV_HEIGHT = 50
 
