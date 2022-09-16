@@ -30,7 +30,7 @@ export default function About(): JSX.Element {
 					)}
 					style={{ animationDelay: "200ms" }}
 				>
-					<h3 style={{ color: color }} className={styles.contentTitle}>
+					<h3 style={{ color }} className={styles.contentTitle}>
 						About me
 					</h3>
 					<hr style={{ borderColor: color }} className={styles.line} />
@@ -39,12 +39,12 @@ export default function About(): JSX.Element {
 					style={{ display: "inline-block", animationDelay: "1500ms" }}
 					className={multipleClasses(
 						styles.beforeFadeIn,
-						inView ? styles.fadeIn : ""
+						inView ? styles.fadeIn : undefined
 					)}
 				>
 					<p>
-						Hi! My name is Gus and I&apos;m an{" "}
-						<span style={{ color }}>aspiring software developer</span>.&nbsp;
+						Hi! My name is Gus and I&apos;m an
+						<span style={{ color }}> aspiring software developer</span>.
 						I&apos;m originally from Perth, Western Australia but currently
 						based in Canada. With a background in Maths and Physics, I&apos;m
 						fascinated by the intricacies of how things work and enjoy using
@@ -52,7 +52,7 @@ export default function About(): JSX.Element {
 					</p>
 					<p>
 						I became interested in software development a few years ago after
-						discovering a passion for building useful things from scratch.
+						discovering a passion for building useful applications from scratch.
 						I&apos;m now looking to apply my skills in creating tools to help
 						users be more efficient
 					</p>
@@ -65,7 +65,7 @@ export default function About(): JSX.Element {
 						Languages/technologies I&apos;ve used:
 					</p>
 					<p style={{ color }} className={styles.technologies}>
-						JavaScript React HTML CSS
+						TypeScript JavaScript React HTML CSS PostgreSQL
 					</p>
 				</span>
 			</div>
@@ -73,7 +73,7 @@ export default function About(): JSX.Element {
 				className={multipleClasses(
 					styles.image,
 					styles.beforeFadeIn,
-					inView ? styles.fadeIn : ""
+					inView ? styles.fadeIn : undefined
 				)}
 				style={{ backgroundColor: color, animationDelay: "1000ms" }}
 			>
