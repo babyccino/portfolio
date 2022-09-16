@@ -9,6 +9,7 @@ import useCustomDispatch from "../../hooks/customDispatch"
 import { IntroStatus as IntroStatusEnum, State } from "../../state/types"
 import Bars from "../bars"
 import Button from "../button"
+import { multipleClasses } from "../../util"
 
 const Right = () => (
 	<span className={styles.rightContainer}>
@@ -47,7 +48,7 @@ export default function Intro() {
 				styles.container + (willDisappear ? " " + styles.willDisappear : "")
 			}
 		>
-			<div className={styles.welcomeContainer}>
+			<div className={multipleClasses(styles.welcomeContainer, styles.fadeIn)}>
 				<h1 style={{ color: mainColor }} className={styles.title}>
 					Welcome
 				</h1>
