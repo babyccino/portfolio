@@ -1,5 +1,3 @@
-$background: rgb(25, 25, 29);
-
 .container {
 	height: 100vh;
 	width: 100%;
@@ -192,5 +190,11 @@ $upAnimationInitialDelay: 11s;
 
 	.barsContainer {
 		width: 60%;
+	}
+}
+
+@media (prefers-reduced-motion) {
+	.container {
+		background-color: var(--backgroundBlack);
 	}
 }
