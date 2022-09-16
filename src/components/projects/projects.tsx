@@ -28,7 +28,7 @@ export default function Projects(): JSX.Element {
 					className={multipleClasses(
 						styles.contentTitleContainer,
 						styles.beforeFadeIn,
-						inView ? styles.fadeIn : ""
+						inView ? styles.fadeIn : undefined
 					)}
 					style={{ animationDelay: "200ms" }}
 				>

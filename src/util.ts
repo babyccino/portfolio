@@ -6,4 +6,8 @@ const createCSSFunction =
 export const linearGradient = createCSSFunction("linear-gradient")
 export const translate = createCSSFunction("translate")
 
-export const multipleClasses = (...args: string[]) => args.join(" ")
+export function multipleClasses(...args: (string | undefined)[]): string {
+	return args.reduce((prev, curr): string | undefined => {
+		return curr === undefined || curr === "" ? prev : `${prev} ${curr}`
+	}) as string
+}
