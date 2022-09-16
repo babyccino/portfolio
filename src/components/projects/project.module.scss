@@ -47,14 +47,14 @@ $borderRadius: 15px;
 }
 
 .contentTitle {
-	font-size: clamp(20px, 4vw, 27px);
+	font-size: clamp(1.25rem, 4vw, 1.7rem);
 	margin: 0 0;
 	width: 100%;
 }
 
 .description {
-	font-size: clamp(17px, 3vw, 20px);
-	margin-top: 30px;
+	font-size: clamp(1rem, 3vw, 1.4rem);
+	margin-top: 25px;
 	letter-spacing: 0.05em;
 }
 
@@ -64,7 +64,7 @@ $borderRadius: 15px;
 	gap: 5px;
 	justify-content: space-between;
 	align-items: center;
-	font-size: 1rem;
+	font-size: clamp(0.7rem, 3.4vw, 1.25rem);
 }
 
 .technologies {
@@ -112,6 +112,10 @@ $borderRadius: 15px;
 }
 
 @media only screen and (max-width: 768px) {
+	.description {
+		margin-top: 15px;
+	}
+
 	.image {
 		width: 230%;
 	}

@@ -18,7 +18,6 @@ export interface ProjectData {
 function GithubIcon({ repoName }: { repoName: string }): JSX.Element {
 	return (
 		<SocialIcon
-			key={`g-${repoName}`}
 			bgColor="rgba(0,0,0,0)"
 			fgColor="rgb(230, 230, 230)"
 			url={`https://github.com/${repoName}`}
@@ -28,7 +27,6 @@ function GithubIcon({ repoName }: { repoName: string }): JSX.Element {
 function VercelIcon({ projectName }: { projectName: string }): JSX.Element {
 	return (
 		<a
-			key={`v-${projectName}`}
 			href={`https://${projectName}.vercel.app/`}
 			style={{
 				display: "flex",
@@ -37,6 +35,7 @@ function VercelIcon({ projectName }: { projectName: string }): JSX.Element {
 				height: "50px",
 				color: "rgb(230, 230, 230)",
 			}}
+			aria-label={`vercel-link-${projectName}`}
 		>
 			<FaExternalLinkAlt />
 		</a>
@@ -47,14 +46,14 @@ const projectsData: ProjectData[] = [
 	{
 		title: "Portfolio Website",
 		description:
-			"I created this portfolio page from scratch, using no css libraries, taking inspiration \
-      from other portfolio sites but trying to add as much of my own flair as I could. I used css animations \
-      as much as possible for performance.",
+			"I created this portfolio page, using no css libraries, taking inspiration \
+      from other portfolio sites while adding my own flair. I used css over js animations as much as possible for performance. \
+			I have tried to make the site fully accessible by supporting motion reduction and making sure the site is usable without a mouse.",
 		image: portfolioImage,
-		technologies: ["react.js", "next.js", "sass", "redux", "figma"],
+		technologies: ["react.js", "next.js", "redux", "figma"],
 		links: [
-			<GithubIcon repoName="babyccino/portfolio" />,
-			<VercelIcon projectName="babyccino-portfolio" />,
+			<GithubIcon key="0" repoName="babyccino/portfolio" />,
+			<VercelIcon key="1" projectName="babyccino-portfolio" />,
 		],
 	},
 	{
@@ -71,11 +70,11 @@ const projectsData: ProjectData[] = [
 			"TailwindCSS",
 			"figma",
 			"SQL",
-			"PrismaORM",
+			"Prisma",
 		],
 		links: [
-			<GithubIcon repoName={"babyccino/countdown-timer"} />,
-			<VercelIcon projectName="countdown-timer-babyccino" />,
+			<GithubIcon key="0" repoName="babyccino/countdown-timer" />,
+			<VercelIcon key="1" projectName="countdown-timer-babyccino" />,
 		],
 	},
 	{
@@ -87,8 +86,8 @@ const projectsData: ProjectData[] = [
 		image: letterBoxr,
 		technologies: ["react.js", "sass", "redux", "figma"],
 		links: [
-			<GithubIcon repoName={"babyccino/Letterboxr"} />,
-			<VercelIcon projectName="letterboxr" />,
+			<GithubIcon key="0" repoName="babyccino/Letterboxr" />,
+			<VercelIcon key="1" projectName="letterboxr" />,
 		],
 	},
 	{
@@ -99,7 +98,7 @@ const projectsData: ProjectData[] = [
       The application takes CSV data in the form and generates simple PDF donation receipts",
 		image: donationReceipt,
 		technologies: ["node.js", "GoogleAPI", "nodemailer", "pdfkit"],
-		links: [<GithubIcon repoName={"babyccino/donation-receipts"} />],
+		links: [<GithubIcon key="0" repoName="babyccino/donation-receipts" />],
 	},
 ]
 
