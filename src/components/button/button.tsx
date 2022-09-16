@@ -1,44 +1,33 @@
 import styles from "./button.module.scss"
 
-import { MouseEventHandler } from "react"
+import { AnchorHTMLAttributes } from "react"
 
-import { linearGradient } from "../../util"
+import { linearGradient, multipleClasses } from "../../util"
 
-export default function Button({
-	color,
-	href,
-	style,
-	children,
-	download,
-	onClick,
-}: {
-	children: React.ReactNode
-	color: string
-	href?: string
-	style?: Record<string, string>
-	download?: boolean
-	onClick?: MouseEventHandler<HTMLAnchorElement>
-}): JSX.Element {
+export default function Button(
+	props: AnchorHTMLAttributes<HTMLAnchorElement> & {
+		color: string
+	}
+): JSX.Element {
 	return (
 		<a
-			className={styles.button}
-			href={href}
+			{...props}
+			className={multipleClasses(styles.button, props.className)}
+			href={props.href || "javascript:;"}
 			role="button"
 			style={{
-				borderColor: color,
-				color,
+				borderColor: props.color,
+				color: props.color,
 				backgroundImage: linearGradient(
 					"90deg",
-					color,
-					color + " 49%",
+					props.color,
+					props.color + " 49%",
 					"transparent 50%"
 				),
-				...style,
+				...props.style,
 			}}
-			download
-			onClick={onClick}
 		>
-			{children}
+			{props.children}
 		</a>
 	)
 }

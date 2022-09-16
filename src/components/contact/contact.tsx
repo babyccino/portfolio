@@ -16,16 +16,13 @@ export default function Contact(): JSX.Element {
 	const color = useColor(3)
 
 	return (
-		<section
-			className={multipleClasses(styles.content, styles.contact)}
-			id="contact"
-		>
+		<section className={multipleClasses(styles.content, styles.contact)}>
 			<div className={styles.contentInner} ref={inViewRef}>
 				<div
 					className={multipleClasses(
 						styles.contentTitleContainer,
 						styles.beforeFadeIn,
-						inView ? styles.fadeIn : ""
+						inView ? styles.fadeIn : undefined
 					)}
 					style={{ animationDelay: "200ms" }}
 				>
@@ -37,7 +34,7 @@ export default function Contact(): JSX.Element {
 					style={{ display: "inline-block", animationDelay: "400ms" }}
 					className={multipleClasses(
 						styles.beforeFadeIn,
-						inView ? styles.fadeIn : ""
+						inView ? styles.fadeIn : undefined
 					)}
 				>
 					I&apos;m currently open to any and all opportunties
@@ -47,8 +44,9 @@ export default function Contact(): JSX.Element {
 					className={multipleClasses(
 						styles.buttonContainer,
 						styles.beforeFadeIn,
-						inView ? styles.fadeIn : ""
+						inView ? styles.fadeIn : undefined
 					)}
+					id="contact"
 				>
 					<Button
 						href="mailto:gus.ryan163@gmail.com"

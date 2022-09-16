@@ -26,3 +26,13 @@
 		}
 	}
 }
+
+@media (prefers-reduced-motion) {
+	.button {
+		&:focus,
+		&:active,
+		&:target {
+			outline: 1px solid white;
+		}
+	}
+}

@@ -13,6 +13,11 @@ $grey: rgb(224, 224, 224);
 	background-color: rgba(25, 25, 29, 0.85);
 	backdrop-filter: blur(10px);
 	box-shadow: 0 0 30px -10px rgb(15, 15, 15);
+
+	&:focus-within {
+		transform: none;
+		box-shadow: 0 0 30px -10px rgb(15, 15, 15);
+	}
 }
 
 .scrollDown {
@@ -21,7 +26,7 @@ $grey: rgb(224, 224, 224);
 }
 
 .topOfPage {
-	box-shadow: none;
+	box-shadow: none !important;
 }
 
 .contentContainer {
