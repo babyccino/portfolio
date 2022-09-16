@@ -18,7 +18,7 @@ export interface ProjectData {
 function GithubIcon({ repoName }: { repoName: string }): JSX.Element {
 	return (
 		<SocialIcon
-			key={repoName}
+			key={`g-${repoName}`}
 			bgColor="rgba(0,0,0,0)"
 			fgColor="rgb(230, 230, 230)"
 			url={`https://github.com/${repoName}`}
@@ -28,7 +28,7 @@ function GithubIcon({ repoName }: { repoName: string }): JSX.Element {
 function VercelIcon({ projectName }: { projectName: string }): JSX.Element {
 	return (
 		<a
-			key={projectName}
+			key={`v-${projectName}`}
 			href={`https://${projectName}.vercel.app/`}
 			style={{
 				display: "flex",
