@@ -8,7 +8,7 @@ import { linearGradient } from "../../util"
 import Contact from "../contact"
 import { useColorPalette } from "../../hooks/colorPalette"
 
-const Content = (): JSX.Element => {
+export default function Content(): JSX.Element {
 	const colorPalette: string[] = useColorPalette()
 
 	return (
@@ -45,5 +45,3 @@ const Content = (): JSX.Element => {
 		</main>
 	)
 }
-
-export default Content
