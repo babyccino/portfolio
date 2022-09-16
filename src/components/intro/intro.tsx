@@ -38,17 +38,16 @@ export default function Intro() {
 	}, [])
 
 	const willDisappear = introStatus >= IntroStatusEnum.willDisappear
-	const colorPalette = useColorPalette()
-	const mainColor = colorPalette[0]
-	const secondaryColor = colorPalette[1]
+	const [mainColor, secondaryColor] = useColorPalette()
 
 	return (
-		<div
-			className={
-				styles.container + (willDisappear ? " " + styles.willDisappear : "")
-			}
-		>
-			<div className={multipleClasses(styles.welcomeContainer, styles.fadeIn)}>
+		<div className={styles.container}>
+			<div
+				className={multipleClasses(
+					styles.welcomeContainer,
+					willDisappear ? styles.fadeOut : styles.fadeIn
+				)}
+			>
 				<h1 style={{ color: mainColor }} className={styles.title}>
 					Welcome
 				</h1>

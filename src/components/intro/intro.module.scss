@@ -5,9 +5,18 @@
 	top: 0;
 	z-index: 2;
 	overflow: hidden;
+}
+
+.welcomeContainer {
+	height: 50vh;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	font-size: clamp(3.75rem, 6vmax, 7.5rem);
+	transition: transform 0.5s !important;
 
 	* {
-		transition: 0.7s ease;
+		text-align: center;
 	}
 }
 
@@ -17,15 +26,17 @@
 	animation: fadeIn 0.7s ease-out 0.2s 1 normal forwards;
 }
 
-.welcomeContainer {
-	height: 50vh;
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	font-size: clamp(3.75rem, 6vmax, 7.5rem);
+.fadeOut {
+	opacity: 1;
+	animation: fadeOut 0.7s ease-in 0s 1 normal forwards;
+}
 
-	* {
-		text-align: center;
+@keyframes fadeOut {
+	from {
+		transform: none;
+	}
+	to {
+		transform: translateX(-130%);
 	}
 }
 
@@ -57,42 +68,38 @@ $upAnimationInitialDelay: 11s;
 .rightContainer {
 	display: inline-block;
 	position: relative;
+}
+.rightTransparent {
+	position: relative;
+	color: transparent;
+}
+.rightAnimated1,
+.rightAnimated2 {
+	display: inline-block;
+	position: absolute;
 
-	.rightTransparent {
-		position: relative;
-		color: transparent;
-	}
+	animation-duration: $upAnimationDuration;
+	animation-timing-function: ease;
+	animation-direction: normal;
 
-	.rightAnimated1,
-	.rightAnimated2 {
-		display: inline-block;
-		position: absolute;
-
-		animation-duration: $upAnimationDuration;
-		animation-timing-function: ease;
-		animation-direction: normal;
-
-		user-select: none;
-		-moz-user-select: none;
-		-khtml-user-select: none;
-		-webkit-user-select: none;
-		-o-user-select: none;
-	}
-
-	.rightAnimated1 {
-		animation-name: swipe;
-		animation-delay: $upAnimationInitialDelay;
-		animation-fill-mode: forwards;
-		animation-iteration-count: infinite;
-	}
-
-	.rightAnimated2 {
-		animation-name: initialAppear, swipe;
-		animation-delay: $upAnimationInitialDelay,
-			$upAnimationInitialDelay + $upAnimationDuration / 2;
-		animation-fill-mode: none, forwards;
-		animation-iteration-count: 1, infinite;
-	}
+	user-select: none;
+	-moz-user-select: none;
+	-khtml-user-select: none;
+	-webkit-user-select: none;
+	-o-user-select: none;
+}
+.rightAnimated1 {
+	animation-name: swipe;
+	animation-delay: $upAnimationInitialDelay;
+	animation-fill-mode: forwards;
+	animation-iteration-count: infinite;
+}
+.rightAnimated2 {
+	animation-name: initialAppear, swipe;
+	animation-delay: $upAnimationInitialDelay,
+		$upAnimationInitialDelay + $upAnimationDuration / 2;
+	animation-fill-mode: none, forwards;
+	animation-iteration-count: 1, infinite;
 }
 
 .button {
@@ -102,16 +109,6 @@ $upAnimationInitialDelay: 11s;
 .barsContainer {
 	height: 50vh;
 	position: relative;
-}
-
-.willDisappear {
-	transition: background-color 0.5s ease-in 0.3s;
-	background-color: transparent;
-
-	.welcomeContainer {
-		transition: transform 0.5s ease-in;
-		transform: translateX(-150%);
-	}
 }
 
 @keyframes fadeIn {
@@ -201,9 +198,6 @@ $upAnimationInitialDelay: 11s;
 }
 
 @media (prefers-reduced-motion) {
-	.container {
-		background-color: var(--backgroundBlack);
-	}
 	.fadeIn {
 		opacity: 1;
 	}
