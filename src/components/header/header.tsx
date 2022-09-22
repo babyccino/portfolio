@@ -1,7 +1,7 @@
 import styles from "./header.module.scss"
 
 import { useEffect, useState } from "react"
-import { animateScroll, Link } from "react-scroll"
+import { animateScroll, Link, scroller } from "react-scroll"
 
 import { useColorPalette } from "../../hooks/colorPalette"
 import useIsScrollingUp from "../../hooks/scrollUp"
@@ -39,6 +39,31 @@ export default function Header(): JSX.Element {
 		}
 	}, [])
 
+	const aboutCb = reducedMotion
+		? undefined
+		: () => {
+				scroller.scrollTo("about", {
+					smooth: true,
+					offset: NAV_HEIGHT,
+				})
+				disableHeaderHide?.()
+		  }
+	const projectsCb = reducedMotion
+		? undefined
+		: () => {
+				scroller.scrollTo("projects", {
+					smooth: true,
+					offset: NAV_HEIGHT,
+				})
+				disableHeaderHide?.()
+		  }
+	const contactCb = reducedMotion
+		? undefined
+		: () => {
+				animateScroll.scrollToBottom()
+				disableHeaderHide?.()
+		  }
+
 	return (
 		<div
 			style={{ color: mainColor }}
@@ -65,46 +90,33 @@ export default function Header(): JSX.Element {
 					G
 				</a>
 				<nav className={styles.sections}>
-					<Link
-						to="about"
+					<a
 						href="#about"
-						smooth={!reducedMotion}
-						offset={NAV_HEIGHT}
-						style={{
-							borderColor: mainColor,
-							animationDelay: "0.9s",
-						}}
-						onClick={disableHeaderHide}
-					>
-						About
-					</Link>
-					<Link
-						to="projects"
-						href="#projects"
-						smooth={!reducedMotion}
-						offset={NAV_HEIGHT}
 						style={{
 							borderColor: mainColor,
 							animationDelay: "1.0s",
 						}}
-						onClick={disableHeaderHide}
+						onClick={aboutCb}
+					>
+						About
+					</a>
+					<a
+						href="#projects"
+						style={{
+							borderColor: mainColor,
+							animationDelay: "1.0s",
+						}}
+						onClick={projectsCb}
 					>
 						Projects
-					</Link>
+					</a>
 					<a
 						style={{
 							borderColor: mainColor,
 							animationDelay: "1.1s",
 						}}
 						href="#contact"
-						onClick={
-							reducedMotion
-								? undefined
-								: () => {
-										animateScroll.scrollToBottom()
-										disableHeaderHide?.()
-								  }
-						}
+						onClick={contactCb}
 					>
 						Contact
 					</a>
