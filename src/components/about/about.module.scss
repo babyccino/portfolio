@@ -1,6 +1,29 @@
 @import "./../../styles/content.scss";
 
+.hover {
+	position: relative;
+	display: inline-block;
+
+	&::after {
+		content: "";
+		display: block;
+		position: absolute;
+		left: 50%;
+		width: 0;
+		transition: width 0.3s ease-in-out, left 0.3s ease-in-out;
+		border-top-width: 0.06em;
+		border-top-style: solid;
+		border-top-color: inherit;
+	}
+
+	&:hover::after {
+		left: 0;
+		width: 100%;
+	}
+}
+
 .about {
+	position: relative;
 	display: flex;
 	gap: 20px;
 	flex-direction: row;
@@ -12,7 +35,6 @@
 		margin-top: 0;
 	}
 }
-
 .image {
 	flex-shrink: 0;
 	position: relative;
@@ -26,11 +48,45 @@
 	&:hover {
 		background-color: rgba(0, 0, 0, 0) !important;
 
-		img {
-			filter: none !important;
-			mix-blend-mode: unset !important;
+		.imageContainer {
+			opacity: 0;
+		}
+
+		.box {
+			transform: translate(5%, 5%);
 		}
 	}
+}
+
+.noFilterImage {
+	flex-shrink: 0;
+	position: absolute;
+	inset: 0;
+
+	display: inline-flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+.imageContainer {
+	transition: opacity 0.5s;
+	border-radius: 10px;
+	position: relative;
+	display: inline-flex;
+}
+
+.box {
+	position: absolute;
+	border-color: white;
+	border-width: 1px;
+	border-radius: 10px;
+	border-style: solid;
+	height: 100%;
+	width: 100%;
+	transition: rotate 0.4s;
+	transition: scale 0.4s;
+	transition: translate 0.4s;
+	transition: transform 0.4s;
 }
 
 .technologies {

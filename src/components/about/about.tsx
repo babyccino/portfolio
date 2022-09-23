@@ -45,9 +45,14 @@ export default function About(): JSX.Element {
 						)}
 					>
 						<p>
-							Hi! My name is Gus and I&apos;m an
-							<span style={{ color }}> aspiring software developer</span>.
-							I&apos;m originally from Perth, Western Australia but currently
+							Hi! My name is Gus and I&apos;m an&nbsp;
+							<span
+								style={{ color, borderColor: color }}
+								className={styles.hover}
+							>
+								aspiring software developer
+							</span>
+							. I&apos;m originally from Perth, Western Australia but currently
 							based in Canada. With a background in Maths and Physics, I&apos;m
 							fascinated by the intricacies of how things work and enjoy using
 							logic to solve problems
@@ -67,7 +72,7 @@ export default function About(): JSX.Element {
 							Languages/technologies I&apos;ve used:
 						</p>
 						<p style={{ color }} className={styles.technologies}>
-							TypeScript JavaScript React HTML CSS PostgreSQL
+							typescript javascript react html css postgresql
 						</p>
 					</span>
 				</div>
@@ -79,15 +84,30 @@ export default function About(): JSX.Element {
 					)}
 					style={{ backgroundColor: color, animationDelay: "1000ms" }}
 				>
-					<Image
-						src={profile}
-						style={{
-							filter: "grayscale(100%)",
-							mixBlendMode: "multiply",
-							borderRadius: "10px",
-						}}
-						alt="Picture of me"
-					/>
+					<div style={{ borderColor: color }} className={styles.box} />
+					<div className={styles.noFilterImage}>
+						<Image
+							src={profile}
+							style={{
+								borderRadius: "10px",
+							}}
+							alt="the same picture of me"
+						/>
+					</div>
+					<div
+						className={styles.imageContainer}
+						style={{ backgroundColor: color }}
+					>
+						<Image
+							src={profile}
+							style={{
+								filter: "grayscale(100%)",
+								mixBlendMode: "multiply",
+								borderRadius: "10px",
+							}}
+							alt="Picture of me"
+						/>
+					</div>
 				</div>
 			</section>
 		</Element>
