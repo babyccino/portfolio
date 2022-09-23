@@ -3,7 +3,7 @@ import { SocialIcon } from "react-social-icons"
 
 import styles from "./icons.module.scss"
 
-function Icon({
+export function Icon({
 	url,
 	defaultColor,
 	hoverColor,
