@@ -12,7 +12,7 @@ function Icon({
 	url: string
 	defaultColor: string
 	hoverColor: string
-	style: React.CSSProperties
+	style?: React.CSSProperties
 }): JSX.Element {
 	const [hover, setHover] = useState(false)
 
