@@ -53,7 +53,7 @@
 		}
 
 		.box {
-			transform: translate(5%, 5%);
+			transform: translate(3%, 3%);
 		}
 	}
 }
@@ -78,14 +78,11 @@
 .box {
 	position: absolute;
 	border-color: white;
-	border-width: 1px;
+	border-width: 1.5px;
 	border-radius: 10px;
 	border-style: solid;
 	height: 100%;
 	width: 100%;
-	transition: rotate 0.4s;
-	transition: scale 0.4s;
-	transition: translate 0.4s;
 	transition: transform 0.4s;
 }
 
