@@ -1,5 +1,25 @@
 @import "./../../styles/content.scss";
 
+.container {
+	transition: transform 1s, opacity 1s;
+
+	position: relative;
+	&:hover,
+	&:focus-within {
+		.contentInner {
+			opacity: 1;
+		}
+
+		.image {
+			filter: brightness(40%);
+		}
+
+		.hoverHintContainer {
+			animation-play-state: running;
+		}
+	}
+}
+
 .notInView {
 	transform: translateY(100px);
 	opacity: 0;
@@ -17,17 +37,6 @@ $borderRadius: 15px;
 	min-height: 0;
 	border-radius: $borderRadius;
 	overflow: hidden;
-
-	&:hover,
-	&:focus-within {
-		.contentInner {
-			opacity: 1;
-		}
-
-		.image {
-			filter: brightness(40%);
-		}
-	}
 }
 
 .contentInner {
@@ -123,4 +132,67 @@ $borderRadius: 15px;
 	.contentInner {
 		padding: 20px 30px !important;
 	}
+}
+
+.animationContainer {
+	opacity: 0;
+	animation: hoverHintFadeIn 6s ease-in-out 3s 1 normal forwards;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+}
+
+@keyframes hoverHintFadeIn {
+	from {
+		opacity: 0;
+	}
+	12% {
+		opacity: 1;
+	}
+	88% {
+		opacity: 1;
+	}
+	to {
+		opacity: 0;
+	}
+}
+
+.hoverHintContainer {
+	z-index: 4;
+	position: absolute;
+	left: 95%;
+	top: 50%;
+	translate: 0 -50%;
+	font-size: 1rem;
+	animation: fadeOutAnimation 0.3s ease-in-out 0s 1 normal forwards;
+	animation-play-state: paused;
+
+	&:hover {
+		animation-play-state: running;
+	}
+}
+
+@keyframes fadeOutAnimation {
+	to {
+		opacity: 0;
+		visibility: hidden;
+	}
+}
+
+$hoverHintColor: rgba(20, 20, 20, 0.7);
+.triangle {
+	width: 0;
+	height: 0;
+	border: 5px solid transparent;
+	border-right: 5px solid $hoverHintColor;
+}
+
+.hoverHint {
+	width: 6.5rem;
+	font-family: Heebo;
+	padding: 8px;
+	border-radius: 5px;
+	text-align: center;
+	background-color: $hoverHintColor;
+	flex-grow: 1;
 }

@@ -14,7 +14,8 @@ export default function Project({
 	image,
 	technologies,
 	links,
-}: ProjectData & { color: string }): JSX.Element {
+	first = false,
+}: ProjectData & { color: string; first: boolean }): JSX.Element {
 	const options = {
 		triggerOnce: true,
 		rootMargin: "-200px 0px",
@@ -22,32 +23,43 @@ export default function Project({
 	const [inViewRef, inView] = useInView(options)
 
 	return (
-		<article
+		<div
 			className={multipleClasses(
-				styles.content,
-				styles.project,
+				styles.container,
 				inView ? styles.inView : styles.notInView
 			)}
-			ref={inViewRef}
 		>
-			<div className={styles.contentInner}>
-				<h3 style={{ color }} className={styles.contentTitle}>
-					{title}
-				</h3>
-				<span className={styles.description}>{description}</span>
-				<div className={styles.technologiesAndLinks}>
-					<div className={styles.technologies}>{technologies.join(" ")}</div>
-					<div className={styles.links}>{links}</div>
+			{first && (
+				<div className={styles.hoverHintContainer} style={{ color }}>
+					<span className={styles.animationContainer}>
+						<div className={styles.triangle}></div>
+						<div className={styles.hoverHint}>hover to see more</div>
+					</span>
 				</div>
-			</div>
-			<div className={styles.image}>
-				<Image
-					src={image}
-					style={{ borderRadius: "10px" }}
-					placeholder="blur"
-					alt={title}
-				/>
-			</div>
-		</article>
+			)}
+			<article
+				className={multipleClasses(styles.content, styles.project)}
+				ref={inViewRef}
+			>
+				<div className={styles.contentInner}>
+					<h3 style={{ color }} className={styles.contentTitle}>
+						{title}
+					</h3>
+					<span className={styles.description}>{description}</span>
+					<div className={styles.technologiesAndLinks}>
+						<div className={styles.technologies}>{technologies.join(" ")}</div>
+						<div className={styles.links}>{links}</div>
+					</div>
+				</div>
+				<div className={styles.image}>
+					<Image
+						src={image}
+						style={{ borderRadius: "10px" }}
+						placeholder="blur"
+						alt={title}
+					/>
+				</div>
+			</article>
+		</div>
 	)
 }

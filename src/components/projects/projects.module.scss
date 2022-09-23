@@ -5,12 +5,17 @@
 	flex-direction: column;
 	max-width: 75rem; // 1200px
 	margin-bottom: 0;
-
-	.line {
-		max-width: 18.75rem; // 300px
-	}
 }
 
-.project:nth-child(odd) {
-	align-self: flex-end;
+.line {
+	max-width: 18.75rem; // 300px
+}
+
+.project {
+	align-self: flex-start;
+	position: relative;
+
+	&:nth-child(odd) {
+		align-self: flex-end;
+	}
 }

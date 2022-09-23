@@ -37,16 +37,17 @@ export default function Projects(): JSX.Element {
 						<h3 style={{ color: mainColor }} className={styles.contentTitle}>
 							My Projects
 						</h3>
-						<hr
-							style={{ borderColor: mainColor }}
-							className={multipleClasses(styles.line, styles.projectLine)}
-						/>
+						<hr style={{ borderColor: mainColor }} className={styles.line} />
 					</div>
 				</div>
 				{projectsData.map(
 					(datum, i): JSX.Element => (
 						<div key={datum.title} className={styles.project}>
-							<Project color={colorPalette[(i + 3) % 5]} {...datum} />
+							<Project
+								color={colorPalette[(i + 3) % 5]}
+								first={i === 0}
+								{...datum}
+							/>
 						</div>
 					)
 				)}
