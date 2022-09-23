@@ -1,6 +1,9 @@
+import styles from "./data.module.scss"
+
 import { StaticImageData } from "next/image"
-import { SocialIcon } from "react-social-icons"
 import { FaExternalLinkAlt } from "react-icons/fa"
+
+import { Icon } from "../icons/icons"
 
 import portfolioImage from "../../../public/portfolio.jpg"
 import countDownTimer from "../../../public/countdown-timer.jpg"
@@ -17,10 +20,11 @@ export interface ProjectData {
 
 function GithubIcon({ repoName }: { repoName: string }): JSX.Element {
 	return (
-		<SocialIcon
-			bgColor="rgba(0,0,0,0)"
-			fgColor="rgb(230, 230, 230)"
+		<Icon
+			defaultColor="rgb(230, 230, 230)"
+			hoverColor="hsl(210, 80%, 80%)"
 			url={`https://github.com/${repoName}`}
+			style={{ animation: "none", opacity: 1 }}
 		/>
 	)
 }
@@ -28,13 +32,7 @@ function VercelIcon({ projectName }: { projectName: string }): JSX.Element {
 	return (
 		<a
 			href={`https://${projectName}.vercel.app/`}
-			style={{
-				display: "flex",
-				alignItems: "center",
-				transform: "scale(1.5)",
-				height: "50px",
-				color: "rgb(230, 230, 230)",
-			}}
+			className={styles.vercel}
 			aria-label={`vercel-link-${projectName}`}
 		>
 			<FaExternalLinkAlt />
@@ -64,10 +62,10 @@ const projectsData: ProjectData[] = [
 			to maintain performance without database caching.",
 		image: countDownTimer,
 		technologies: [
-			"TypeScript",
+			"typescript",
 			"react.js",
 			"next.js",
-			"TailwindCSS",
+			"tailwindcss",
 			"figma",
 			"SQL",
 			"Prisma",
