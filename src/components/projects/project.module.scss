@@ -103,6 +103,72 @@ $borderRadius: 15px;
 	transition: filter 0.5s;
 }
 
+.hoverHintContainer {
+	z-index: 4;
+	position: absolute;
+	left: 95%;
+	top: 50%;
+	translate: 0 -50%;
+	font-size: 1rem;
+	animation: fadeOutAnimation 0.2s ease-in 0s 1 normal forwards;
+	animation-play-state: paused;
+
+	&:hover {
+		animation-play-state: running;
+	}
+}
+
+.animationContainer {
+	opacity: 0;
+	animation: hoverHintFadeInOut 6s ease-in-out 3s 1 normal forwards;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+}
+
+$hoverHintColor: rgba(20, 20, 20, 0.7);
+$triangleWidth: 0.6rem;
+$triangleHeight: 1rem;
+.triangle {
+	width: 0;
+	height: 0;
+	border: $triangleHeight solid transparent;
+	border-left: none;
+	border-right: $triangleWidth solid $hoverHintColor;
+}
+
+.hoverHint {
+	width: 6.5rem;
+	font-family: Heebo;
+	padding: 0.8rem;
+	border-radius: $borderRadius;
+	text-align: center;
+	background-color: $hoverHintColor;
+	flex-grow: 1;
+}
+
+@keyframes hoverHintFadeInOut {
+	from {
+		opacity: 0;
+	}
+	12% {
+		opacity: 1;
+	}
+	88% {
+		opacity: 1;
+	}
+	to {
+		opacity: 0;
+	}
+}
+
+@keyframes fadeOutAnimation {
+	to {
+		opacity: 0;
+		visibility: hidden;
+	}
+}
+
 @media (hover: none) or (prefers-reduced-motion) {
 	.image {
 		filter: brightness(40%);
@@ -110,6 +176,10 @@ $borderRadius: 15px;
 
 	.contentInner {
 		opacity: 1 !important;
+	}
+
+	.hoverHintContainer {
+		display: none;
 	}
 }
 
@@ -132,67 +202,4 @@ $borderRadius: 15px;
 	.contentInner {
 		padding: 20px 30px !important;
 	}
-}
-
-.animationContainer {
-	opacity: 0;
-	animation: hoverHintFadeIn 6s ease-in-out 3s 1 normal forwards;
-	display: flex;
-	flex-direction: row;
-	align-items: center;
-}
-
-@keyframes hoverHintFadeIn {
-	from {
-		opacity: 0;
-	}
-	12% {
-		opacity: 1;
-	}
-	88% {
-		opacity: 1;
-	}
-	to {
-		opacity: 0;
-	}
-}
-
-.hoverHintContainer {
-	z-index: 4;
-	position: absolute;
-	left: 95%;
-	top: 50%;
-	translate: 0 -50%;
-	font-size: 1rem;
-	animation: fadeOutAnimation 0.3s ease-in-out 0s 1 normal forwards;
-	animation-play-state: paused;
-
-	&:hover {
-		animation-play-state: running;
-	}
-}
-
-@keyframes fadeOutAnimation {
-	to {
-		opacity: 0;
-		visibility: hidden;
-	}
-}
-
-$hoverHintColor: rgba(20, 20, 20, 0.7);
-.triangle {
-	width: 0;
-	height: 0;
-	border: 5px solid transparent;
-	border-right: 5px solid $hoverHintColor;
-}
-
-.hoverHint {
-	width: 6.5rem;
-	font-family: Heebo;
-	padding: 8px;
-	border-radius: 5px;
-	text-align: center;
-	background-color: $hoverHintColor;
-	flex-grow: 1;
 }
