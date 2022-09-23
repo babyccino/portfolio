@@ -29,7 +29,7 @@ export default function Project({
 				inView ? styles.inView : styles.notInView
 			)}
 		>
-			{first && (
+			{first && inView && (
 				<div className={styles.hoverHintContainer} style={{ color }}>
 					<span className={styles.animationContainer}>
 						<div className={styles.triangle}></div>
