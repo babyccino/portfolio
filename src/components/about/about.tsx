@@ -64,8 +64,22 @@ export default function About(): JSX.Element {
 							to help users be more efficient
 						</p>
 						<p>
-							Besides coding at my desk, I can be found climbing rocks and
-							photographing natural landscapes
+							Besides coding at my desk, I can be found&nbsp;
+							<a
+								href="https://www.youtube.com/channel/UCtWqQrnozUZXpxnjhVgUTUw"
+								style={{ color, borderColor: color }}
+								className={styles.hover}
+							>
+								climbing rocks
+							</a>
+							&nbsp;and&nbsp;
+							<a
+								href="https://www.gus-ryan.com/"
+								style={{ color, borderColor: color }}
+								className={styles.hover}
+							>
+								photographing natural landscapes
+							</a>
 						</p>
 						<p>
 							<br />
