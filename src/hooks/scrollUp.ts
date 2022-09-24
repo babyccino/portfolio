@@ -2,7 +2,7 @@ import { useState, useEffect } from "react"
 
 const SCROLL_THRESHOLD = 10
 
-const useIsScrollingUp = (initialState: boolean): boolean => {
+export default function useIsScrollingUp(initialState: boolean): boolean {
 	const [scrollUp, setScrollUp] = useState<boolean>(initialState)
 
 	useEffect(() => {
@@ -26,5 +26,3 @@ const useIsScrollingUp = (initialState: boolean): boolean => {
 
 	return scrollUp
 }
-
-export default useIsScrollingUp

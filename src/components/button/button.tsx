@@ -5,14 +5,13 @@ import { AnchorHTMLAttributes } from "react"
 import { linearGradient, multipleClasses } from "../../util"
 
 export default function Button(
-	props: AnchorHTMLAttributes<HTMLAnchorElement> & {
-		color: string
-	}
+	props: AnchorHTMLAttributes<HTMLAnchorElement> & { color: string }
 ): JSX.Element {
 	return (
 		<a
 			{...props}
 			className={multipleClasses(styles.button, props.className)}
+			// the javascript:; href is for making it selectable with tab for keyboard users
 			href={props.href || "javascript:;"}
 			role="button"
 			style={{
