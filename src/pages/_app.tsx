@@ -3,14 +3,7 @@ import "../styles/globals.scss"
 import { AppProps } from "next/app"
 import Head from "next/head"
 
-import { configureStore } from "@reduxjs/toolkit"
-import { Provider } from "react-redux"
-
-import rootReducer from "../state/reducers"
-
-const store = configureStore({
-	reducer: rootReducer,
-})
+import ReduxProvider from "../state/reduxProvider"
 
 export default function MyApp({ Component, pageProps }: AppProps) {
 	return (
@@ -24,9 +17,9 @@ export default function MyApp({ Component, pageProps }: AppProps) {
 				<meta name="viewport" content="width=device-width, initial-scale=1" />
 				<link rel="icon" href="/icon.png" />
 			</Head>
-			<Provider store={store}>
+			<ReduxProvider>
 				<Component {...pageProps} />
-			</Provider>
+			</ReduxProvider>
 		</>
 	)
 }
