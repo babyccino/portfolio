@@ -11,9 +11,9 @@ export default function Button(
 		<a
 			{...props}
 			className={multipleClasses(styles.button, props.className)}
-			// the javascript:; href is for making it selectable with tab for keyboard users
-			href={props.href || "javascript:;"}
+			href={props.href}
 			role="button"
+			tabIndex={0}
 			style={{
 				borderColor: props.color,
 				color: props.color,
