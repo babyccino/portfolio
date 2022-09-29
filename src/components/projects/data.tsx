@@ -67,8 +67,8 @@ const projectsData: ProjectData[] = [
 			"next.js",
 			"tailwindcss",
 			"figma",
-			"SQL",
-			"Prisma",
+			"sql",
+			"prisma",
 		],
 		links: [
 			<GithubIcon key="0" repoName="babyccino/countdown-timer" />,
@@ -95,7 +95,7 @@ const projectsData: ProjectData[] = [
       yearly donation receipts for non-profits. I found third party applications lacking so I created one myself. \
       The application takes CSV data in the form and generates simple PDF donation receipts",
 		image: donationReceipt,
-		technologies: ["node.js", "GoogleAPI", "nodemailer", "pdfkit"],
+		technologies: ["node.js", "google-api", "nodemailer", "pdfkit"],
 		links: [<GithubIcon key="0" repoName="babyccino/donation-receipts" />],
 	},
 ]
