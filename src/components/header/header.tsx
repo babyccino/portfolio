@@ -90,36 +90,29 @@ export default function Header(): JSX.Element {
 					G
 				</a>
 				<nav className={styles.sections}>
-					<a
-						href="#about"
-						style={{
-							borderColor: mainColor,
-							animationDelay: "1.0s",
-						}}
-						onClick={aboutCb}
-					>
+					<a href="#about" style={{ animationDelay: "0.9s" }} onClick={aboutCb}>
 						About
 					</a>
 					<a
 						href="#projects"
-						style={{
-							borderColor: mainColor,
-							animationDelay: "1.0s",
-						}}
+						style={{ animationDelay: "1.0s" }}
 						onClick={projectsCb}
 					>
 						Projects
 					</a>
 					<a
-						style={{
-							borderColor: mainColor,
-							animationDelay: "1.1s",
-						}}
+						style={{ animationDelay: "1.1s" }}
 						href="#contact"
 						onClick={contactCb}
 					>
 						Contact
 					</a>
+					<style jsx>{`
+						a:hover,
+						a:active {
+							border-color: ${mainColor};
+						}
+					`}</style>
 				</nav>
 			</div>
 		</div>

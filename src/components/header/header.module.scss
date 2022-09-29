@@ -60,6 +60,7 @@ $grey: rgb(224, 224, 224);
 	-moz-text-fill-color: transparent;
 }
 
+$borderWidth: 1px;
 .sections {
 	display: flex;
 	align-items: center;
@@ -69,23 +70,18 @@ $grey: rgb(224, 224, 224);
 		width: clamp(5.4em, 7.5vw, 1000em);
 		text-align: center;
 		padding: 6px 0;
-		margin: 0 -0.5px;
 
 		font-weight: 500;
 
-		transition: 0.1s ease-in-out;
+		transition: border-color 0.2s ease-in-out;
 
-		border-width: 0px;
+		border-width: 0px $borderWidth;
+		margin: 0 -$borderWidth/2;
 		border-style: solid;
+		border-color: rgba(0, 0, 0, 0);
 
 		opacity: 0;
 		animation: entry 0.5s ease-out 0s 1 normal both;
-
-		&:hover,
-		&:active {
-			cursor: pointer;
-			border-width: 0px 1px;
-		}
 	}
 }
 
