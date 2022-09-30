@@ -77,9 +77,17 @@ $borderRadius: 15px;
 }
 
 .technologies {
-	word-spacing: 1em;
-	line-height: 1.5em;
 	font-family: monospace;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	gap: 1em;
+	margin: 0;
+	padding: 0;
+
+	li {
+		display: inline;
+	}
 }
 
 .links {

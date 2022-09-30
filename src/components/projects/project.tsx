@@ -32,8 +32,8 @@ export default function Project({
 			{first && inView && (
 				<div className={styles.hoverHintContainer} style={{ color }}>
 					<span className={styles.animationContainer}>
-						<div className={styles.triangle}></div>
-						<div className={styles.hoverHint}>hover to see more</div>
+						<div className={styles.triangle} />
+						<p className={styles.hoverHint}>hover to see more</p>
 					</span>
 				</div>
 			)}
@@ -45,10 +45,18 @@ export default function Project({
 					<h3 style={{ color }} className={styles.contentTitle}>
 						{title}
 					</h3>
-					<span className={styles.description}>{description}</span>
+					<p className={styles.description}>{description}</p>
 					<div className={styles.technologiesAndLinks}>
-						<div className={styles.technologies}>{technologies.join(" ")}</div>
-						<div className={styles.links}>{links}</div>
+						<ul className={styles.technologies}>
+							{technologies.map((tech) => (
+								<li>{tech}</li>
+							))}
+						</ul>
+						<ul className={styles.links}>
+							{links.map((link) => (
+								<li>{link}</li>
+							))}
+						</ul>
 					</div>
 				</div>
 				<div className={styles.image}>

@@ -37,7 +37,8 @@
 		transition: transform 0.17s;
 		display: block;
 	}
-	&hover a,
+
+	&:hover a,
 	a:hover {
 		transform: translateY(-1.5px);
 	}

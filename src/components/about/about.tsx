@@ -6,8 +6,10 @@ import { useInView } from "react-intersection-observer"
 import { Element } from "react-scroll"
 
 import profile from "../../../public/profile.jpg"
+
 import { useColor } from "../../hooks/colorPalette"
 import { multipleClasses } from "../../util"
+import UnderlineLink from "../underline-link"
 
 export default function About(): JSX.Element {
 	const options = {
@@ -45,14 +47,8 @@ export default function About(): JSX.Element {
 						)}
 					>
 						<p>
-							Hi! My name is Gus and I&apos;m an&nbsp;
-							<span
-								style={{ color, borderColor: color }}
-								className={styles.hover}
-							>
-								aspiring software developer
-							</span>
-							. I&apos;m originally from Perth, Western Australia but currently
+							Hi! My name is Gus and I&apos;m an aspiring software developer.
+							I&apos;m originally from Perth, Western Australia but currently
 							based in Canada. With a background in Maths and Physics, I&apos;m
 							fascinated by the intricacies of how things work and enjoy using
 							logic to solve problems
@@ -65,29 +61,28 @@ export default function About(): JSX.Element {
 						</p>
 						<p>
 							Besides coding at my desk, I can be found&nbsp;
-							<a
-								href="https://www.youtube.com/channel/UCtWqQrnozUZXpxnjhVgUTUw"
-								style={{ color, borderColor: color }}
-								className={styles.hover}
+							<UnderlineLink
+								url="https://www.youtube.com/channel/UCtWqQrnozUZXpxnjhVgUTUw"
+								color={color}
 							>
 								climbing rocks
-							</a>
+							</UnderlineLink>
 							&nbsp;and&nbsp;
-							<a
-								href="https://www.gus-ryan.com/"
-								style={{ color, borderColor: color }}
-								className={styles.hover}
-							>
+							<UnderlineLink url="https://www.gus-ryan.com/" color={color}>
 								photographing natural landscapes
-							</a>
+							</UnderlineLink>
 						</p>
-						<p>
-							<br />
+						<p className={styles.languagesTechnologies}>
 							Languages/technologies I&apos;ve used:
 						</p>
-						<p style={{ color }} className={styles.technologies}>
-							typescript javascript react html css postgresql
-						</p>
+						<ul style={{ color }} className={styles.technologies}>
+							<li>typescript</li>
+							<li>javascript</li>
+							<li>react</li>
+							<li>html</li>
+							<li>css</li>
+							<li>postgresql</li>
+						</ul>
 					</span>
 				</div>
 				<div
@@ -105,7 +100,7 @@ export default function About(): JSX.Element {
 							style={{
 								borderRadius: "10px",
 							}}
-							alt="the same picture of me"
+							alt="A picture of me, Gus Ryan, in Red Rock national park in Nevada"
 						/>
 					</div>
 					<div
@@ -119,7 +114,7 @@ export default function About(): JSX.Element {
 								mixBlendMode: "multiply",
 								borderRadius: "10px",
 							}}
-							alt="Picture of me"
+							alt="A picture of me, Gus Ryan, in Red Rock national park in Nevada"
 						/>
 					</div>
 				</div>

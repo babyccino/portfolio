@@ -40,17 +40,19 @@ export default function Projects(): JSX.Element {
 						<hr style={{ borderColor: mainColor }} className={styles.line} />
 					</div>
 				</div>
-				{projectsData.map(
-					(datum, i): JSX.Element => (
-						<div key={datum.title} className={styles.project}>
-							<Project
-								color={colorPalette[(i + 3) % 5]}
-								first={i === 0}
-								{...datum}
-							/>
-						</div>
-					)
-				)}
+				<ul className={styles.projectsContainer}>
+					{projectsData.map(
+						(datum, i): JSX.Element => (
+							<li key={datum.title} className={styles.project}>
+								<Project
+									color={colorPalette[(i + 3) % 5]}
+									first={i === 0}
+									{...datum}
+								/>
+							</li>
+						)
+					)}
+				</ul>
 			</section>
 		</Element>
 	)

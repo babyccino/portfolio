@@ -25,6 +25,7 @@ function GithubIcon({ repoName }: { repoName: string }): JSX.Element {
 			hoverColor="hsl(210, 80%, 80%)"
 			url={`https://github.com/${repoName}`}
 			style={{ animation: "none", opacity: 1 }}
+			label={`github project ${repoName}`}
 		/>
 	)
 }
@@ -33,7 +34,7 @@ function VercelIcon({ projectName }: { projectName: string }): JSX.Element {
 		<a
 			href={`https://${projectName}.vercel.app/`}
 			className={styles.vercel}
-			aria-label={`vercel-link-${projectName}`}
+			aria-label={`vercel ${projectName}`}
 		>
 			<FaExternalLinkAlt />
 		</a>

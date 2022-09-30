@@ -1,27 +1,5 @@
 @import "./../../styles/content.scss";
 
-.hover {
-	position: relative;
-	display: inline-block;
-
-	&::after {
-		content: "";
-		display: block;
-		position: absolute;
-		left: 50%;
-		width: 0;
-		transition: width 0.3s ease-in-out, left 0.3s ease-in-out;
-		border-top-width: 0.06em;
-		border-top-style: solid;
-		border-top-color: inherit;
-	}
-
-	&:hover::after {
-		left: 0;
-		width: 100%;
-	}
-}
-
 .about {
 	position: relative;
 	display: flex;
@@ -99,9 +77,17 @@
 	transition: transform 0.4s;
 }
 
+.languagesTechnologies {
+	margin-top: 2.2rem;
+}
+
 .technologies {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: row;
+	gap: 1em;
 	font-family: monospace;
-	word-spacing: 1em;
+	padding: 0;
 }
 
 @media only screen and (max-width: 768px) {

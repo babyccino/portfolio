@@ -38,10 +38,10 @@ export default function Content(): JSX.Element {
 
 			<Contact />
 
-			<div className={styles.footer}>
+			<footer className={styles.footer}>
 				<Icons color={colorPalette[0]} />
 				Developed by Gus Ryan, thanks for checking it out!
-			</div>
+			</footer>
 		</main>
 	)
 }

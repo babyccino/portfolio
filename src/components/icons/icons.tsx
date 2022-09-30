@@ -8,11 +8,13 @@ export function Icon({
 	defaultColor,
 	hoverColor,
 	style,
+	label,
 }: {
 	url: string
 	defaultColor: string
 	hoverColor: string
 	style?: React.CSSProperties
+	label?: string
 }): JSX.Element {
 	const [hover, setHover] = useState(false)
 
@@ -26,6 +28,7 @@ export function Icon({
 			<SocialIcon
 				bgColor="rgba(0,0,0,0)"
 				fgColor={hover ? hoverColor : defaultColor}
+				label={label}
 				url={url}
 			/>
 		</div>
@@ -35,26 +38,32 @@ export function Icon({
 export default function Icons({ color }: { color: string }): JSX.Element {
 	return (
 		<div className={styles.mainContainer}>
-			<div className={styles.iconsContainer}>
-				<Icon
-					style={{ animationDelay: "1.8s" }}
-					url={"https://www.linkedin.com/in/gus-ryan-50/"}
-					defaultColor={color}
-					hoverColor="#0A66C2"
-				/>
-				<Icon
-					style={{ animationDelay: "1.9s" }}
-					url={"https://github.com/babyccino"}
-					defaultColor={color}
-					hoverColor="hsl(210, 66.7%, 90%)"
-				/>
-				<Icon
-					style={{ animationDelay: "2.0s" }}
-					url={"https://www.instagram.com/babyccino1/"}
-					defaultColor={color}
-					hoverColor="#e95950"
-				/>
-			</div>
+			<ul className={styles.iconsContainer}>
+				<li>
+					<Icon
+						style={{ animationDelay: "1.8s" }}
+						url={"https://www.linkedin.com/in/gus-ryan-50/"}
+						defaultColor={color}
+						hoverColor="#0A66C2"
+					/>
+				</li>
+				<li>
+					<Icon
+						style={{ animationDelay: "1.9s" }}
+						url={"https://github.com/babyccino"}
+						defaultColor={color}
+						hoverColor="hsl(210, 66.7%, 90%)"
+					/>
+				</li>
+				<li>
+					<Icon
+						style={{ animationDelay: "2.0s" }}
+						url={"https://www.instagram.com/babyccino1/"}
+						defaultColor={color}
+						hoverColor="#e95950"
+					/>
+				</li>
+			</ul>
 			<div
 				style={{ borderLeft: `1px solid ${color}`, animationDelay: "2.1s" }}
 				className={styles.line}

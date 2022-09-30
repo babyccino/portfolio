@@ -73,7 +73,7 @@ export default function Header(): JSX.Element {
 				styles.mainContainer
 			)}
 		>
-			<div className={styles.contentContainer}>
+			<header className={styles.contentContainer}>
 				<a
 					className={styles.logo}
 					style={{
@@ -86,35 +86,48 @@ export default function Header(): JSX.Element {
 					}}
 					href="#"
 					onClick={reducedMotion ? undefined : animateScroll.scrollToTop}
+					aria-label="top of page"
 				>
 					G
 				</a>
 				<nav className={styles.sections}>
-					<a href="#about" style={{ animationDelay: "0.9s" }} onClick={aboutCb}>
-						About
-					</a>
-					<a
-						href="#projects"
-						style={{ animationDelay: "1.0s" }}
-						onClick={projectsCb}
-					>
-						Projects
-					</a>
-					<a
-						style={{ animationDelay: "1.1s" }}
-						href="#contact"
-						onClick={contactCb}
-					>
-						Contact
-					</a>
-					<style jsx>{`
-						a:hover,
-						a:active {
-							border-color: ${mainColor};
-						}
-					`}</style>
+					<ul className={styles.sections}>
+						<li>
+							<a
+								href="#about"
+								style={{ animationDelay: "0.9s" }}
+								onClick={aboutCb}
+							>
+								About
+							</a>
+						</li>
+						<li>
+							<a
+								href="#projects"
+								style={{ animationDelay: "1.0s" }}
+								onClick={projectsCb}
+							>
+								Projects
+							</a>
+						</li>
+						<li>
+							<a
+								style={{ animationDelay: "1.1s" }}
+								href="#contact"
+								onClick={contactCb}
+							>
+								Contact
+							</a>
+						</li>
+						<style jsx>{`
+							a:hover,
+							a:active {
+								border-color: ${mainColor};
+							}
+						`}</style>
+					</ul>
 				</nav>
-			</div>
+			</header>
 		</div>
 	)
 }

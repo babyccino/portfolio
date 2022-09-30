@@ -51,7 +51,7 @@ export default function Intro() {
 				<h1 style={{ color: mainColor }} className={styles.title}>
 					Welcome
 				</h1>
-				<h2 className={styles.instructions}>
+				<p className={styles.instructions}>
 					Don&apos;t like the color palette? Then neither do I! <br />
 					Press&nbsp;
 					<span style={{ color: secondaryColor }} className={styles.spacebar}>
@@ -63,7 +63,7 @@ export default function Intro() {
 						<Right />
 					</span>
 					&nbsp;to change it
-				</h2>
+				</p>
 				<div className={styles.button}>
 					<Button color={secondaryColor} onClick={dispatch.requestUnmount}>
 						Come and learn about me!

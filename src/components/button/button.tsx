@@ -12,7 +12,7 @@ export default function Button(
 			{...props}
 			className={multipleClasses(styles.button, props.className)}
 			href={props.href}
-			role="button"
+			role={props.href ? undefined : "button"}
 			tabIndex={0}
 			style={{
 				borderColor: props.color,
