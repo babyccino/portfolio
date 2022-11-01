@@ -22,7 +22,7 @@ const currentlyAnimatingInitialState: CurrentlyAnimatingRefType = {
 	queue: false,
 }
 
-function Bars(): JSX.Element {
+function Bars({ className }: { className?: string }): JSX.Element {
 	const dispatch = useCustomDispatch()
 
 	const colorPalettes = useSelector(
@@ -112,7 +112,7 @@ function Bars(): JSX.Element {
 	const prevColorPalette = colorPalettes[len - 2]
 
 	return (
-		<div className={styles.container} {...handlers}>
+		<div className={multipleClasses(styles.container, className)} {...handlers}>
 			<BarsInner
 				colorPalette={currentColorPalette}
 				key={len - 1}
@@ -137,7 +137,7 @@ function BarsInner({
 	colorPalette: string[]
 }): JSX.Element {
 	return (
-		<div>
+		<>
 			{colorPalette.map(
 				(color: string, idx: number): JSX.Element => (
 					<div
@@ -150,7 +150,7 @@ function BarsInner({
 					/>
 				)
 			)}
-		</div>
+		</>
 	)
 }
 
