@@ -41,6 +41,19 @@ export default function Project({
 				className={multipleClasses(styles.content, styles.project)}
 				ref={inViewRef}
 			>
+				<div className={styles.image}>
+					<Image
+						src={image}
+						style={{
+							borderRadius: "10px",
+							width: "100%",
+							top: 0,
+							position: "relative",
+						}}
+						placeholder="blur"
+						alt={title}
+					/>
+				</div>
 				<div className={styles.contentInner}>
 					<h3 style={{ color }} className={styles.contentTitle}>
 						{title}
@@ -58,14 +71,6 @@ export default function Project({
 							))}
 						</ul>
 					</div>
-				</div>
-				<div className={styles.image}>
-					<Image
-						src={image}
-						style={{ borderRadius: "10px" }}
-						placeholder="blur"
-						alt={title}
-					/>
 				</div>
 			</article>
 		</div>

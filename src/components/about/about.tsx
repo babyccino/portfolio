@@ -96,6 +96,7 @@ export default function About(): JSX.Element {
 					<div style={{ borderColor: color }} className={styles.box} />
 					<div className={styles.noFilterImage}>
 						<Image
+							fill
 							src={profile}
 							style={{
 								borderRadius: "10px",
@@ -108,6 +109,7 @@ export default function About(): JSX.Element {
 						style={{ backgroundColor: color }}
 					>
 						<Image
+							fill
 							src={profile}
 							style={{
 								filter: "grayscale(100%)",
