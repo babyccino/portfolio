@@ -1,6 +1,6 @@
 import styles from "./about.module.scss"
 
-import Image from "next/image"
+import Image from "next/legacy/image"
 
 import { useInView } from "react-intersection-observer"
 import { Element } from "react-scroll"
