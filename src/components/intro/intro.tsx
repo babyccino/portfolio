@@ -70,9 +70,7 @@ export default function Intro() {
 					</Button>
 				</div>
 			</div>
-			<div className={styles.barsContainer}>
-				<Bars />
-			</div>
+			<Bars className={styles.barsContainer} />
 		</div>
 	)
 }

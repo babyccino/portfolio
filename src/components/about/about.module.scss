@@ -14,17 +14,10 @@
 	}
 }
 
-.imageContainer,
-.noFilterImage,
-.image {
-	display: inline-flex;
-	border-radius: 10px;
-	flex-shrink: 0;
-}
+// image
 
 .image {
 	position: relative;
-	width: min(25vw, 28.125rem);
 	flex-direction: column;
 	justify-content: center;
 
@@ -39,6 +32,16 @@
 			transform: translate(3%, 3%);
 		}
 	}
+}
+
+.imageContainer,
+.noFilterImage,
+.image {
+	width: min(25vw, 28.125rem);
+	aspect-ratio: 1/1;
+	display: inline-flex;
+	border-radius: 10px;
+	flex-shrink: 0;
 }
 
 .noFilterImage {
@@ -77,6 +80,8 @@
 	transition: transform 0.4s;
 }
 
+// /image
+
 .languagesTechnologies {
 	margin-top: 2.2rem;
 }
@@ -84,7 +89,7 @@
 .technologies {
 	display: flex;
 	flex-direction: row;
-	flex-wrap: row;
+	flex-wrap: wrap;
 	gap: 1em;
 	font-family: monospace;
 	padding: 0;
