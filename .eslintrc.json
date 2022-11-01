@@ -1,10 +1,5 @@
 {
-	"extends": [
-		"plugin:react/recommended",
-		"standard-with-typescript",
-		"google",
-		"prettier"
-	],
+	"extends": ["prettier", "plugin:@next/next/recommended"],
 	"rules": {
 		"react/no-unknown-property": ["error", { "ignore": ["jsx"] }]
 	},
@@ -17,5 +12,5 @@
 		"ecmaVersion": "latest",
 		"sourceType": "module"
 	},
-	"plugins": ["react"]
+	"plugins": ["prettier"]
 }
