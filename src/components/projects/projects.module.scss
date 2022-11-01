@@ -12,6 +12,8 @@
 .projectsContainer {
 	display: flex;
 	flex-direction: column;
+	padding: 0;
+	gap: 10px;
 }
 
 .project {
