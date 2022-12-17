@@ -1,7 +1,7 @@
 import styles from "./header.module.scss"
 
 import { useEffect, useState } from "react"
-import { animateScroll, Link, scroller } from "react-scroll"
+import { animateScroll, scroller } from "react-scroll"
 
 import { useColorPalette } from "../../hooks/colorPalette"
 import useIsScrollingUp from "../../hooks/scrollUp"
@@ -15,17 +15,16 @@ export default function Header(): JSX.Element {
 	const reducedMotion = usePrefersReducedMotion()
 	const scrollUp = useIsScrollingUp(true)
 	const isTopOfPage = useIsTopOfPage(true)
-	const [clickLink, setClickLink] = useState(false)
+	const [disableHeaderHide, setDisableHeaderHide] = useState(false)
 	const [mainColor, secondaryColor] = useColorPalette()
 
 	// if a link is clicked disable the navbar being hidden until the user presses a key or scrolls
-	const disableHeaderHide = reducedMotion ? undefined : () => setClickLink(true)
 	useEffect(() => {
 		const scrollUnsetsFocus = () =>
 			(document.activeElement as HTMLElement).blur()
 		document.addEventListener("wheel", scrollUnsetsFocus)
 
-		const listener = () => setClickLink(false)
+		const listener = () => setDisableHeaderHide(false)
 		document.addEventListener("keydown", listener)
 		document.addEventListener("wheel", listener)
 		document.addEventListener("touchmove", listener)
@@ -46,7 +45,7 @@ export default function Header(): JSX.Element {
 					smooth: true,
 					offset: NAV_HEIGHT,
 				})
-				disableHeaderHide?.()
+				setDisableHeaderHide(true)
 		  }
 	const projectsCb = reducedMotion
 		? undefined
@@ -55,13 +54,13 @@ export default function Header(): JSX.Element {
 					smooth: true,
 					offset: NAV_HEIGHT,
 				})
-				disableHeaderHide?.()
+				setDisableHeaderHide(true)
 		  }
 	const contactCb = reducedMotion
 		? undefined
 		: () => {
 				animateScroll.scrollToBottom()
-				disableHeaderHide?.()
+				setDisableHeaderHide(true)
 		  }
 
 	return (
@@ -69,7 +68,7 @@ export default function Header(): JSX.Element {
 			style={{ color: mainColor }}
 			className={multipleClasses(
 				isTopOfPage ? styles.topOfPage : undefined,
-				scrollUp || clickLink ? undefined : styles.scrollDown,
+				scrollUp || disableHeaderHide ? undefined : styles.scrollDown,
 				styles.mainContainer
 			)}
 		>
@@ -112,8 +111,8 @@ export default function Header(): JSX.Element {
 						</li>
 						<li>
 							<a
-								style={{ animationDelay: "1.1s" }}
 								href="#contact"
+								style={{ animationDelay: "1.1s" }}
 								onClick={contactCb}
 							>
 								Contact
