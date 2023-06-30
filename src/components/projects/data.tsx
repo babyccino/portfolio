@@ -5,6 +5,7 @@ import { FaExternalLinkAlt } from "react-icons/fa"
 
 import { Icon } from "../icons/icons"
 
+import donationReceiptOnlineImage from "../../../public/qbo.jpg"
 import portfolioImage from "../../../public/portfolio.jpg"
 import countDownTimer from "../../../public/countdown-timer.jpg"
 import letterBoxr from "../../../public/letterBoxr.jpg"
@@ -43,6 +44,27 @@ function VercelIcon({ projectName }: { projectName: string }): JSX.Element {
 }
 
 const projectsData: ProjectData[] = [
+	{
+		title: "DonationReceipt.Online",
+		description:
+			"This project aims to streamline the process of generating, downloading, \
+			and sending donation receipts to donors. This app integrates with QuickBooks \
+			Online to fetch relevant data receipts as well as with Stripe for payments \
+			and AWS's SES for emails. Creating this app involved interfacing with the \
+			Intuit team to ensure accuracy and compliance with legal requirements and Intuit's policies.",
+		image: donationReceiptOnlineImage,
+		technologies: ["react.js", "next.js", "redux", "figma"],
+		links: [
+			<GithubIcon key="0" repoName="babyccino/qbo-donation-receipts" />,
+			<a
+				href="https://donationreceipt.online"
+				className={styles.vercel}
+				aria-label={`donation receipt online`}
+			>
+				<FaExternalLinkAlt />
+			</a>,
+		],
+	},
 	{
 		title: "Portfolio Website",
 		description:

@@ -62,12 +62,12 @@ export default function Project({
 					<div className={styles.technologiesAndLinks}>
 						<ul className={styles.technologies}>
 							{technologies.map((tech) => (
-								<li>{tech}</li>
+								<li key={tech}>{tech}</li>
 							))}
 						</ul>
 						<ul className={styles.links}>
-							{links.map((link) => (
-								<li>{link}</li>
+							{links.map((link, idx) => (
+								<li key={idx}>{link}</li>
 							))}
 						</ul>
 					</div>
