@@ -66,6 +66,19 @@ const projectsData: ProjectData[] = [
 		],
 	},
 	{
+		title: "Barnes-Hut Simulation",
+		description:
+			"I studied this algorithm in a Scala course on parallel programming and thought it \
+			would be a fun project to make a visualisation web app. To keep this site performant \
+		I used stragies such as: object pooling, using html canvas, and various other algorithms.",
+		image: barnesHut,
+		technologies: ["react.js", "next.js", "typescript", "tailwindcss"],
+		links: [
+			<GithubIcon key="0" repoName="babyccino/barnes-hut" />,
+			<VercelIcon key="1" projectName="barnes-hut" />,
+		],
+	},
+	{
 		title: "Portfolio Website",
 		description:
 			"I created this portfolio page, using no css libraries, taking inspiration from \
@@ -77,20 +90,6 @@ const projectsData: ProjectData[] = [
 		links: [
 			<GithubIcon key="0" repoName="babyccino/portfolio" />,
 			<VercelIcon key="1" projectName="babyccino-portfolio" />,
-		],
-	},
-	{
-		title: "Barnes-Hut Simulation",
-		description:
-			"I studied this algorithm in a Scala course on parallel programming and thought it \
-			would be a fun project to make a visualisation web app. There were various challenges \
-			with the animations including one which was identical to the “merge intervals” medium \
-			Leetcode problem ",
-		image: barnesHut,
-		technologies: ["react.js", "next.js", "typescript", "tailwindcss"],
-		links: [
-			<GithubIcon key="0" repoName="babyccino/barnes-hut" />,
-			<VercelIcon key="1" projectName="barnes-hut" />,
 		],
 	},
 	{
