@@ -48,10 +48,9 @@ export default function About(): JSX.Element {
 					>
 						<p>
 							Hi! My name is Gus and I&apos;m an aspiring software developer.
-							I&apos;m originally from Perth, Western Australia but currently
-							based in Canada. With a background in Maths and Physics, I&apos;m
-							fascinated by the intricacies of how things work and enjoy using
-							logic to solve problems
+							I&apos;m originally from Perth, Western Australia. With a background
+							in Maths and Physics, I&apos;m fascinated by the intricacies
+							of how things work and enjoy using logic to solve problems
 						</p>
 						<p>
 							I became interested in software development a few years ago after
